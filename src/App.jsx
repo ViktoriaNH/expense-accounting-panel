@@ -1,5 +1,5 @@
-import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import './styles/index'
 
 function App() {
   return (
