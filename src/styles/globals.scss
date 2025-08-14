@@ -1,57 +1,66 @@
 html {
-  scroll-behavior: smooth;
   &.is-lock {
     overflow: hidden;
   }
 }
-// прибиваем футер к низу
+
 body {
+  @include fluid-text(18, 14);
+
   display: flex;
   flex-direction: column;
-  background-color: var(--color-white);
-  font-family: var(--font-primary);
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+  font-family: var(--font-family-base);
+  color: var(--color-gray-60);
+  background-color: var(--color-black-08);
 }
 
 main {
   flex-grow: 1;
 }
 
-h1 {
-  @include fluid-text(58, 20);
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: var(--color-white);
+}
+
+h1, .h1 {
+  @include fluid-text(58, 28);
 
   font-weight: 700;
-  font-family: var(--font-accent);
-  line-height: 1em;
-  color: var(--color-brown-dark);
 }
-h2 {
-  @include fluid-text(48, 16);
 
-  font-family: var(--font-primary);
+h2, .h2 {
+  @include fluid-text(48, 24);
+
+  font-weight: 700;
+}
+
+h3, .h3 {
+  @include fluid-text(38, 20);
+
+  font-weight: 700;
+}
+
+h4, .h4 {
+  @include fluid-text(24, 18);
+
+  font-weight: 600;
+}
+
+h5, .h5 {
+  @include fluid-text(22, 18);
+
   font-weight: 500;
-  color: var(--color-brown-dark);
 }
 
-p {
-  font-family: var(--font-primary);
-  font-weight: 300;
-  margin: 0;
-  color: var(--color-brown-dark);
-}
+h6, .h6 {
+  @include fluid-text(20, 16);
 
-button {
-  font-family: var(--font-heading);
+  font-weight: 600;
 }
 
 a,
@@ -66,10 +75,13 @@ svg * {
 
 a {
   color: inherit;
-  text-decoration: none;
 
   @include hover {
-    color: var(--color-brown-light);
+    color: var(--color-red-45);
+  }
+
+  &[class] {
+    text-decoration: none;
   }
 }
 
@@ -81,3 +93,8 @@ a {
   min-width: 0;
 }
 
+.header,
+.content > *:not(:nth-last-child(2)),
+.footer {
+  display: none !important;
+}

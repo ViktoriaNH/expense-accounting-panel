@@ -1,12 +1,9 @@
 @use 'constants' as *;
 @use 'sass:math';
-// функция для плавного изменения в зависимости от текущей ширины вьюпорта 
 
-@function fluid($max: 100, $min: 10, $isEndOfLaptop: false) { 
-    // если мы будем вызывать функцию с двумя аргументами, то это от десктопа до мобилки
-    // если третьми аргументом передаем true, то будет от десктопа до лэптопа 1280
+@function fluid($max: 100, $min: 10, $isEndOfLaptop: false) {
   $maxViewportWidth: $container-desktop-width;
-  $minViewportWidth: 375; // или 390?
+  $minViewportWidth: 390;
 
   @if ($isEndOfLaptop) {
     $minViewportWidth: $container-laptop-width;
@@ -28,5 +25,5 @@
 }
 
 @function fluid-to-laptop($max: 100, $min: 10) {
-    @return fluid($max, $min, true)
-} 
+  @return fluid($max, $min, true)
+}
