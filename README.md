@@ -22,7 +22,8 @@ A simple application for tracking expenses and budgeting. The user will be able 
 │   │   ├── icons/        
 │   │   └── images/       
 │   │
-│   ├── components/      
+│   ├── components/  
+│   ├── data/      
 │   ├── hooks/        
 │   ├── layouts/             
 │   ├── pages/            
