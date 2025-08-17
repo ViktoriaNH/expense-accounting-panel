@@ -36,8 +36,7 @@ A simple application for tracking expenses and budgeting. The user will be able 
 ├── eslint.config.js    
 ├── index.html         
 ├── package.json           
-├── package-lock.json     
-├── postcss.config.js      
+├── package-lock.json          
 ├── README.md              
 └── vite.config.js  
  ```

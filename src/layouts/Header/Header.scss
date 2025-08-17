@@ -1,0 +1,25 @@
+.header {
+  background-color: var(--color-background-secondary);
+  padding-block: 28px;
+
+  &__inner {
+    @include flex-center(fluid(684, 10));
+
+  }
+
+  &__website-name {
+    font-size: fluid(32, 10);
+    font-weight: 500;
+    color: var(--color-text-accent);
+  }
+
+  &__menu-list {
+   @include flex-center(fluid(40, 10));
+   font-size: fluid(24, 10);
+  }
+
+  
+}
+
+
+

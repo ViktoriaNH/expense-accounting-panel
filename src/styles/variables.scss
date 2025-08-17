@@ -1,24 +1,48 @@
 :root {
+  --color-primary: #2ab673;
+  --color-primary-light: #dff6eb;
+  --color-primary-dark: #1e8c58;
+
+  --color-accent: #3772ff;
+
+  --color-text-primary: #00000080; // черный с прозрачным 50%
+  --color-text-accent: #000000;
+  --color-text-muted: #6b7280;
+
+  --color-background-main: #f7f8fa;
+  --color-background-secondary: #ffffff;
+  --color-background-input: #CACACA;
+
+  --color-border: #e5e7eb;
+  --color-outline-input: #a6a6a6;
+  --color-outline-input-error: #737373;
+
+  --color-link: #1f2937;
+  --color-button: #393838;
+
   --border: var(--border-width-s) solid var(--color-black-15);
 
   --border-width-l: 4px;
   --border-width-m: 3px;
   --border-width-s: 1px;
 
-  --border-radius-l: 12px;
-  --border-radius-m: 10px;
-  --border-radius-s: 8px;
-  --border-radius-xs: 6px;
-  --border-radius-xxs: 5px;
-  --border-radius-xxxs: 4px;
 
-  --font-family-base: "Manrope", sans-serif;
 
-  --container-width: #{fluid-to-laptop(
+  --border-radius-xl: 20px;
+  // --border-radius-l: 12px;
+  --border-radius-l: 10px;
+  // --border-radius-s: 8px;
+  // --border-radius-xs: 6px;
+  // --border-radius-xxs: 5px;
+  // --border-radius-xxxs: 4px;
+
+  --font-family-base: "Noto Sans", sans-serif;
+
+  --container-width: #{fluid(
       $container-desktop-width,
-      $container-laptop-width
+      $container-mobile-width
     )};
-  --container-padding-x: 16px;
+  --container-padding-x: 0px;
 
   --section-padding-y: #{fluid(75, 40)};
 

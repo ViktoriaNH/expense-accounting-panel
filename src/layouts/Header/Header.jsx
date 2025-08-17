@@ -1,7 +1,47 @@
+import { NavLink } from "react-router-dom";
 import "./Header.scss";
 
-const Header = () => {
-  return <header className="header"></header>;
+const Header = ({ isUserAuth }) => {
+  console.log("Header render");
+
+  return (
+    <header className="header">
+      <div className="header__inner container">
+        <div className="header__website-name">
+          <span>Финансы</span>
+        </div>
+
+        {isUserAuth && (
+          <nav className="header__menu" aria-label="Меню">
+            <ul className="header__menu-list">
+              <li className="header__menu-item">
+                <NavLink to="/dashboard">Главная</NavLink>
+              </li>
+              <li className="header__menu-item">
+                <NavLink to="/stats">Статистика</NavLink>
+              </li>
+              <li className="header__menu-item">
+                <NavLink to="/profile" aria-label="Мой профиль">
+                  <svg
+                    width="60"
+                    height="60"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <title>Профиль</title>
+                    <path
+                      d="M20 17.5C20 14.8478 21.0536 12.3043 22.9289 10.4289C24.8043 8.55357 27.3478 7.5 30 7.5C32.6522 7.5 35.1957 8.55357 37.0711 10.4289C38.9464 12.3043 40 14.8478 40 17.5C40 20.1522 38.9464 22.6957 37.0711 24.5711C35.1957 26.4464 32.6522 27.5 30 27.5C27.3478 27.5 24.8043 26.4464 22.9289 24.5711C21.0536 22.6957 20 20.1522 20 17.5ZM20 32.5C16.6848 32.5 13.5054 33.817 11.1612 36.1612C8.81696 38.5054 7.5 41.6848 7.5 45C7.5 46.9891 8.29018 48.8968 9.6967 50.3033C11.1032 51.7098 13.0109 52.5 15 52.5H45C46.9891 52.5 48.8968 51.7098 50.3033 50.3033C51.7098 48.8968 52.5 46.9891 52.5 45C52.5 41.6848 51.183 38.5054 48.8388 36.1612C46.4946 33.817 43.3152 32.5 40 32.5H20Z"
+                      fill="black"
+                    />
+                  </svg>
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
 };
 
 export default Header;
