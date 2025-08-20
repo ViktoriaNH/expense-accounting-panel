@@ -19,13 +19,12 @@ const useRegisterForm = (handleRegister) => {
     try {
       await handleRegister(formData);
 
-      // показываем сообщение об успехе
       setNoticeMessage("Регистрация прошла успешно!");
       setNoticeType("success");
 
-      // через 2 секунды перенаправляем на главную
+      
       setTimeout(() => {
-        navigate("/my-profile"); // или "/auth/login"
+        navigate("/my-profile"); 
       }, 2000);
     } catch (err) {
       if (err.message === "Username or email already exists") {

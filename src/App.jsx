@@ -10,8 +10,6 @@ function App() {
   const [isUserAuth, setIsUserAuth] = useState(false);
 
   return (
-    //  console.log("App рендерится");
-
     <BrowserRouter>
       <Header isUserAuth={isUserAuth} />
       <Routes>
@@ -20,10 +18,9 @@ function App() {
           element={<Authorization onLogin={() => setIsUserAuth(true)} />}
         />
         <Route path="/" element={<Navigate to="/auth/login" replace />} />
-    <Route path="/my-profile" element={<MyProfile />} />
+        <Route path="/my-profile" element={<MyProfile />} />
 
-
-         {/* * <Route path="/dashboard" element={} />
+        {/* * <Route path="/dashboard" element={} />
 
        
       <Route path="/add" element={} />

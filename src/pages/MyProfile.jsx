@@ -1,13 +1,13 @@
 import usePageTitle from "../hooks/usePageTitle";
-
+import Content from "../layouts/Content/Content";
 
 const MyProfile = () => {
   usePageTitle("Мой профиль");
 
   return (
-    <PageWrapper>
-      <Content></Content>
-    </PageWrapper>
+    <Content>
+      <div>Страница в работе</div>
+    </Content>
   );
 };
 
