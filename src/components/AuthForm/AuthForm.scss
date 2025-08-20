@@ -1,7 +1,4 @@
 .auth {
-  max-width: 486px;
-  max-height: 599px;
-
   border-radius: var(--border-radius-xl);
   box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.25);
   background-color: var(--color-background-secondary);
@@ -23,10 +20,13 @@
   }
   &__input {
     margin-block: 10px;
+    padding: 10px;
     border: 1px solid var(--color-outline-input);
-    border-radius: 10px;
-    height: 58px;
-    width: 426px;
+    border-radius: var(--border-radius-l);
+    width: fluid(426, 100);
+    height: fluid(58, 20);
+    // height: 58px;
+    // width: flui426px;
   }
   &__input--error {
     background-color: var(--color-background-input);
@@ -52,5 +52,15 @@
   &__notice {
     @include text-default(16);
     text-align: center;
+  }
+
+  &__notice--success,
+  &__notice--error {
+    background-color: var(--color-background-input);
+    color: var(--color-text-accent);
+    font-weight: 700;
+    padding: 12px 16px;
+    border-radius: var(--border-radius-l);
+    margin-top: 12px;
   }
 }

@@ -1,6 +1,5 @@
 .auth-wrapper {
     display: flex;
-    gap: 126px;
-    padding-top: 96px;
-
+    gap: fluid(126, 10);
+    padding-top: fluid(96, 10);
 }

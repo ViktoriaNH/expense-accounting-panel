@@ -75,12 +75,13 @@ svg * {
 
 a {
   color: var(--color-text-accent);
+  cursor: pointer;
 
   @include hover {
     color: var(--color-accent);
   }
 
-   cursor: pointer;
+ 
 
   &[class] {
     text-decoration: none;

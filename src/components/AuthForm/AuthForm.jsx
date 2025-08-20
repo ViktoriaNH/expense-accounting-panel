@@ -10,9 +10,9 @@ const AuthForm = ({
   error,
   notice,
   onSubmit,
-  buttons,
+  // buttons, // для создания нескольких кнопок в профиле, это на страницу с профилем
 }) => {
-  // новая фмча Реакт18+, useId генерирует уникальную строку на каждый рендер компонента, чтобы не было пересечения
+  // новая фича Реакт18+, useId генерирует уникальную строку на каждый рендер компонента, чтобы не было пересечения
   // одинаковых id в двух компонентах login и register
   const uid = useId();
 
@@ -23,7 +23,6 @@ const AuthForm = ({
     <section className="auth">
       <div className="auth__inner">
         <form
-          //   action=""
           className="auth__form"
           aria-labelledby={titleId}
           onSubmit={onSubmit}
@@ -64,10 +63,16 @@ const AuthForm = ({
             {submitText}
           </button>
 
-          
-
           {notice && (
-            <div className="auth__notice">
+            <div
+              className={`auth__notice ${
+                notice.type === "success"
+                  ? "auth__notice--success"
+                  : notice.type === "error"
+                  ? "auth__notice--error"
+                  : ""
+              }`}
+            >
               <p>
                 {notice.text} <Link to={notice.href}>{notice.linkText}</Link>
               </p>
