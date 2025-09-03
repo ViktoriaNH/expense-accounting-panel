@@ -43,10 +43,11 @@ A simple application for tracking expenses and budgeting. The user will be able 
  ```
 
 ## Stack
-- **React 19** — library for building user interfaces
-- **React Router v7** — routing between pages
-- **SCSS** — styling with nesting, mixins, variables and functions
-- **Vite** — fast and modern project builder
+- **React 19** — library for building interactive user interfaces
+- **React Router v7** — client-side routing for page navigation
+- **SCSS** — CSS preprocessor with nesting, variables, mixins, and functions
+- **Vite** — fast and modern build tool for development and production
+- **React Hook Form** — library for building forms with minimal code, built-in validation, and high performance
 
 ## Installation & Setup
 

@@ -75,11 +75,62 @@
   cursor: not-allowed;
 }
 
-@mixin text-default ($max: 48, $min: 16) {
+
+@mixin text-body-intro ($max: 30, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 600;
+}
+
+@mixin text-subtitle ($max: 18, $min: 12) {
   font-size: fluid($max, $min);
   font-weight: 400;
-  margin: 0;
+}
+
+@mixin text-main ($max: 16, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 400;
+}
+
+@mixin text-main-small ($max: 13, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 400;
+}
+
+@mixin text-label ($max: 14, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 700;
+  line-height: 130%;
+}
+
+@mixin text-helper ($max: 12, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 400;
+  line-height: 140%;
 }
 
 
+@mixin text-button ($max: 16, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 600;
+  line-height: 120%;
+}
+
+@mixin text-button ($max: 16, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 600;
+  line-height: 120%;
+}
+
+@mixin text-caption-tooltip ($max: 12, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 400;
+  line-height: 130%;
+}
+
+@mixin text-tag ($max: 12, $min: 12) {
+  font-size: fluid($max, $min);
+  font-weight: 700;
+  line-height: 120%;
+  text-transform: uppercase;
+}
 

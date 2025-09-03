@@ -32,3 +32,18 @@
     display: none !important;
   }
 }
+
+.button {
+  // пишу пока только но оновании двух кнопок Войти и Загистрироваться
+  // width: 320px;
+  flex: 1 1 320px; // "хочу быть 320px, но можно меньше/больше"
+  max-width: 320px;
+  min-width: 0; // разрешаем сжиматься при нехватке места
+  width: 100%;
+
+  padding-block: fluid(16, 16);
+  padding-inline: fluid(24, 24);
+  text-align: center;
+  border-radius: var(--border-radius-l);
+  cursor: pointer;
+}

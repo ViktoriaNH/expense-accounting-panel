@@ -1,32 +1,35 @@
 @font-face {
-  font-family: 'Noto Sans';
-  src: url('../assets//fonts/NotoSans-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Noto Sans';
-  src: url('../assets/fonts/NotoSans-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  src: url('../assets/fonts/NotoSans-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Noto Sans';
-  src: url('../assets/fonts/NotoSans-Bold.woff2') format('woff2');
+  font-family: 'Nunito';
+  src: url('../assets/fonts/Nunito-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
-
-
+@font-face {
+  font-family: 'Nunito';
+  src: url('../assets/fonts/Nunito-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/OpenSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/OpenSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/OpenSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

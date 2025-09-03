@@ -34,12 +34,15 @@ export const getExpenseOrIncomeCategories = (type) => {
     });
 };
 
+
+// откуда брать id?
+
 export const addExpenseOrIncomeCategories = (name, type, color, icon) => {
   const newCategory = { name, type, color, icon };
   const loginToken = localStorage.getItem("token");
 
   return fetch(
-    `https://aquamarine-chough-477967.hostingersite.com/wp-json/ytyt-finance/v1/categories?type=${type}`,
+    'https://aquamarine-chough-477967.hostingersite.com/wp-json/ytyt-finance/v1/categories',
     {
       method: "POST",
       headers: {
@@ -55,7 +58,7 @@ export const addExpenseOrIncomeCategories = (name, type, color, icon) => {
       if (!res.ok) {
         throw new Error(`Ошибка HTTP: ${res.status}`);
       }
-      return res.json;
+      return res.json();
     })
 
     .then((data) => {
@@ -71,3 +74,73 @@ export const addExpenseOrIncomeCategories = (name, type, color, icon) => {
 };
 
 // POST изменяет данные на сервере → нужно быть аккуратным, чтобы не создать дубликаты.
+
+export const putExpenseOrIncomeCategories = (name, type, color, icon) => {
+  const newCategory = { name, type, color, icon };
+  const loginToken = localStorage.getItem("token");
+
+  return fetch(
+    'https://aquamarine-chough-477967.hostingersite.com/wp-json/ytyt-finance/v1/categories/{id}',
+    {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${loginToken}`,
+        "X-App-Key": "app1_68a192ffe001c",
+        "Content-Type": "application/json",
+        // потому что данные мы отправляем в  JSON
+      },
+      body: JSON.stringify(newCategory), // // превращаем объект в JSON
+    }
+  )
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`Ошибка HTTP: ${res.status}`);
+      }
+      return res.json();
+    })
+
+    .then((data) => {
+      console.log("Ответ от сервера", data);
+      return data;
+    })
+
+    .catch((error) => {
+      console.error("Произошла ошибка при получении данных:", error);
+      // можно вернуть дефолтное значение, чтобы код дальше не ломался
+      return [];
+    });
+};
+
+export const deleteExpenseOrIncomeCategories = () => {
+    const loginToken = localStorage.getItem("token");
+
+    return fetch(
+      'https://aquamarine-chough-477967.hostingersite.com/wp-json/ytyt-finance/v1/categories/{id}',
+      {
+        method: 'DELETE',
+          headers: {
+        Authorization: `Bearer ${loginToken}`,
+        "X-App-Key": "app1_68a192ffe001c",
+      },
+      }
+
+      .then((res) => {
+      if (!res.ok) {
+        throw new Error(`Ошибка HTTP: ${res.status}`);
+      }
+      return res.json();
+    })
+  )
+
+    .then((data) => {
+      console.log("Ответ от сервера", data);
+      return data;
+    })
+
+    .catch((error) => {
+      console.error("Произошла ошибка при получении данных:", error);
+      // можно вернуть дефолтное значение, чтобы код дальше не ломался
+      return [];
+    });
+
+}
