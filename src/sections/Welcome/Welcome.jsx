@@ -3,15 +3,21 @@ import "./Welcome.scss";
 
 const Welcome = () => {
   const titleId = "welcome-title";
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigate('/login');
-  }
+    navigate("/login");
+  };
+
+  const handleRegisterClick = () => {
+    navigate("/register");
+  };
 
   return (
     <section className="welcome" aria-labelledby={titleId}>
-      <div className="welcome__message">Добро пожаловать</div>
+      <div className="welcome__message">
+        <p>Добро пожаловать</p>
+      </div>
       <div className="welcome__identify">
         <img
           src="/icons/welcome-logo.svg"
@@ -28,13 +34,20 @@ const Welcome = () => {
       </div>
 
       <div className="welcome__decription">
-        Панель автоматически распределит расходы и построит отчёты <br />в графиках и
-        таблицах.
+        Панель автоматически распределит расходы и построит отчёты <br />в
+        графиках и таблицах.
       </div>
 
       <div className="welcome__auth">
-        <button className="button button--login" onClick={handleLoginClick}>Войти</button>
-        <button className="button button--register">Зарегистрироваться</button>
+        <button className="button button--login" onClick={handleLoginClick}>
+          Войти
+        </button>
+        <button
+          className="button button--register"
+          onClick={handleRegisterClick}
+        >
+          Зарегистрироваться
+        </button>
       </div>
     </section>
   );

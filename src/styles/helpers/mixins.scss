@@ -1,8 +1,8 @@
-@use 'functions' as *;
+@use "functions" as *;
 
-// @mixin fluid-text($max: 48, $min: 16) {
-//   font-size: fluid($max, $min);
-// }
+@mixin fluid-text($max: 48, $min: 16) {
+  font-size: fluid($max, $min);
+}
 
 @mixin hide {
   opacity: 0;
@@ -14,12 +14,14 @@
   visibility: visible;
 }
 
-@mixin flex-center($gap: 0) {
+@mixin flex-center($gap: 0, $direction: column) {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-direction: $direction;
   gap: $gap;
+
+  @content;
 }
 
 @mixin abs-cover {
@@ -75,62 +77,55 @@
   cursor: not-allowed;
 }
 
-
-@mixin text-body-intro ($max: 30, $min: 12) {
+// передаем туда разные размеры шрифта, по макету это Main Body Body Small Subtitle
+@mixin text-main($max: 16, $min: 16, $line-height: 150%) {
+  font-weight: 400;
   font-size: fluid($max, $min);
+  line-height: $line-height;
+}
+
+// Body Intro
+@mixin text-body-intro($max: 20, $min: 10, $line-height: 150%) {
   font-weight: 600;
+  font-size: fluid($max, $min);
+  line-height: $line-height;
 }
 
-@mixin text-subtitle ($max: 18, $min: 12) {
+// label
+@mixin text-label($max: 14, $min: 14, $line-height: 130%) {
+  font-weight: 600;
   font-size: fluid($max, $min);
+  line-height: $line-height;
+}
+
+// helper
+@mixin text-helper($max: 12, $min: 12, $line-height: 140%) {
   font-weight: 400;
+  font-size: fluid($max, $min);
+  line-height: $line-height;
 }
 
-@mixin text-main ($max: 16, $min: 12) {
+// Button/CTA
+
+@mixin text-button($max: 16, $min: 16, $line-height: 120%) {
+  font-weight: 600;
   font-size: fluid($max, $min);
+  line-height: $line-height;
+}
+
+// Link - с подчеркиванием 16px, Caption Tooltip - без с 12px
+@mixin text-link($max: 16, $min: 16, $line-height: 130%, $underline: true) {
   font-weight: 400;
+  font-size: fluid($max, $min);
+  line-height: $line-height;
+  text-decoration: if($underline, underline, none);
 }
 
-@mixin text-main-small ($max: 13, $min: 12) {
-  font-size: fluid($max, $min);
-  font-weight: 400;
-}
+// tag
 
-@mixin text-label ($max: 14, $min: 12) {
-  font-size: fluid($max, $min);
+@mixin text-tag-small($max: 12, $min: 12, $line-height: 130%) {
   font-weight: 700;
-  line-height: 130%;
-}
-
-@mixin text-helper ($max: 12, $min: 12) {
   font-size: fluid($max, $min);
-  font-weight: 400;
-  line-height: 140%;
-}
-
-
-@mixin text-button ($max: 16, $min: 12) {
-  font-size: fluid($max, $min);
-  font-weight: 600;
-  line-height: 120%;
-}
-
-@mixin text-button ($max: 16, $min: 12) {
-  font-size: fluid($max, $min);
-  font-weight: 600;
-  line-height: 120%;
-}
-
-@mixin text-caption-tooltip ($max: 12, $min: 12) {
-  font-size: fluid($max, $min);
-  font-weight: 400;
-  line-height: 130%;
-}
-
-@mixin text-tag ($max: 12, $min: 12) {
-  font-size: fluid($max, $min);
-  font-weight: 700;
-  line-height: 120%;
+  line-height: $line-height;
   text-transform: uppercase;
 }
-

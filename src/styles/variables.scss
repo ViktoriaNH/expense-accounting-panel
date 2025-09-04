@@ -1,10 +1,16 @@
 :root {
+ --color-text-primary: #0e0d1a;
+--color-text-secondary: #2d2c2c;
 
-  --color-text-main: #0E0D1A;
-  --color-text-secondary: #2D2C2C;
+--color-background-button-primary: #918bff;
+--color-background-button-secondary: #ffffff;
 
-  --color-backround-button-primary: #918BFF;
-  --color-background-button-secondary: #FFF;
+--color-background-button-primary-hover: #6360a4;
+--color-background-button-primary-pressed: #232238;
+--color-background-button-primary-disabled: #a8a8ad;
+
+
+
 
 
   // --color-primary: #2ab673;
@@ -34,7 +40,6 @@
   // --border-width-m: 3px;
   // --border-width-s: 1px;
 
-
   // --border-radius-xl: 20px;
   --border-radius-l: 12px;
   // --border-radius-l: 10px;
@@ -46,10 +51,7 @@
   --font-family-base: "Open Sans", sans-serif;
   --font-family-headline: "Nunito", sans-serif;
 
-  --container-width: #{fluid(
-      $container-desktop-width,
-      $container-mobile-width
-    )};
+  --container-width: #{fluid($container-desktop-width, $container-mobile-width)};
   --container-padding-x: 16px;
 
   --section-padding-y: #{fluid(75, 40)};

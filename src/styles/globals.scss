@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: var(--font-family-base);
-  color: var(--color-text-main);
+  color: var(--color-text-primary);
 }
 
 main {
@@ -66,12 +66,6 @@ h4,
 .h4 {
   font-size: fluid(18);
 }
-
-// p {
-//   font-size: fluid(18);
-//   font-weight: 600;
-//   margin: 0;
-// }
 
 a,
 button,
