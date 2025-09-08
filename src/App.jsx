@@ -5,6 +5,8 @@ import Login from "./components/Login/Login";
 
 import Welcome from "./sections/Welcome/Welcome";
 import Authorization from "./pages/Authorization";
+import AuthWrapper from "./sections/AuthWrapper/AuthWrapper";
+import Register from "./components/Register/Register";
 
 const App = () => {
   return (
@@ -14,7 +16,8 @@ const App = () => {
 
         <Route path="/welcome" element={<Authorization />} />
 
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         {/*    
       <Route path="/list" element={} />

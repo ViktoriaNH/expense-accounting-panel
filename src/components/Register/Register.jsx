@@ -20,7 +20,7 @@ const Register = () => {
       notice={{
         text: noticeMessage || "Уже есть аккаунт?",
         linkText: noticeMessage ? "" : "Войдите",
-        href: noticeMessage ? undefined : "/auth/login",
+        href: noticeMessage ? undefined : "/login",
         type: noticeType,
       }}
     />

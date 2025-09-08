@@ -85,7 +85,7 @@
 }
 
 // Body Intro
-@mixin text-body-intro($max: 20, $min: 10, $line-height: 150%) {
+@mixin text-body-intro($max: 32, $min: 10, $line-height: 150%) {
   font-weight: 600;
   font-size: fluid($max, $min);
   line-height: $line-height;
