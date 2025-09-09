@@ -3,7 +3,6 @@ import { useRegister } from "../../hooks/useRegister";
 import useRegisterForm from "../../hooks/useRegisterForm";
 
 import AuthForm from "../AuthForm/AuthForm";
-import "./Register.scss";
 
 const Register = () => {
   const registerTitle = "Зарегистрироваться";

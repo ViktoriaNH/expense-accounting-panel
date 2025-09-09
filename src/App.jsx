@@ -7,6 +7,7 @@ import Welcome from "./sections/Welcome/Welcome";
 import Authorization from "./pages/Authorization";
 import AuthWrapper from "./sections/AuthWrapper/AuthWrapper";
 import Register from "./components/Register/Register";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+           <Route path="/forgot-password" element={<ForgotPassword />} />
 
         {/*    
       <Route path="/list" element={} />

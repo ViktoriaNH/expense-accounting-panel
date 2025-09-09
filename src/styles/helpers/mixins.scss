@@ -78,8 +78,9 @@
 }
 
 // передаем туда разные размеры шрифта, по макету это Main Body Body Small Subtitle
-@mixin text-main($max: 16, $min: 16, $line-height: 150%) {
-  font-weight: 400;
+
+@mixin text-main($max: 16, $min: 9, $weight: 400, $line-height: 150%, ) {
+  font-weight: $weight;
   font-size: fluid($max, $min);
   line-height: $line-height;
 }

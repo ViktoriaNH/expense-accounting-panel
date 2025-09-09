@@ -1,3 +1,4 @@
+import ForgotPassword from "../../components/ForgotPassword/ForgotPassword";
 import Login from "../../components/Login/Login";
 import Register from '../../components/Register/Register';
 
@@ -18,6 +19,14 @@ const AuthWrapper = ({ onLogin }) => {
           element={
             <>
               <Register onLogin={onLogin} />
+            </>
+          }
+        />
+        <Route
+          path="forgot-password"
+          element={
+            <>
+              <ForgotPassword onLogin={onLogin} />
             </>
           }
         />

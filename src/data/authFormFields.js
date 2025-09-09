@@ -1,4 +1,3 @@
-// import { href } from "react-router-dom";
 
 export const loginFormFields = [
   {
@@ -22,13 +21,13 @@ export const loginFormFields = [
     extra: {
       type: 'link',
       text: 'Забыли пароль?',
-      href: '/reset-password'
+      href: '/forgot-password'
     }
   },
 
   {
     id: 'remember',
-    type: 'chekbox',
+    type: 'checkbox',
     name: 'remember',
     label: 'Запомнить меня',
   }

@@ -1,6 +1,7 @@
 :root {
  --color-text-primary: #0e0d1a;
 --color-text-secondary: #2d2c2c;
+--color-text-main: #333333;
 
 --color-background-button-primary: #918bff;
 --color-background-button-secondary: #ffffff;
@@ -46,7 +47,7 @@
   // --border-radius-s: 8px;
   // --border-radius-xs: 6px;
   // --border-radius-xxs: 5px;
-  // --border-radius-xxxs: 4px;
+  --border-radius-xxxs: 4px;
 
   --font-family-base: "Open Sans", sans-serif;
   --font-family-headline: "Nunito", sans-serif;

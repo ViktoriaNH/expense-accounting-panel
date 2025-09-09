@@ -21,7 +21,7 @@ const Welcome = () => {
         </div>
         <div className="welcome__identify">
           <img
-            src="/icons/welcome-logo.svg"
+            src="/src/assets/icons/welcome-logo.svg"
             alt="Главный логотип"
             width="40"
             height="40"
