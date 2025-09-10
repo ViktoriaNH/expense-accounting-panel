@@ -21,7 +21,7 @@ export const loginFormFields = [
     extra: {
       type: 'link',
       text: 'Забыли пароль?',
-      href: '/forgot-password'
+      href: '/auth/forgot-password'
     }
   },
 

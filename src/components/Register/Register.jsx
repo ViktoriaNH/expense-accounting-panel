@@ -1,5 +1,5 @@
+import { useRegister } from "../../api/auth";
 import { registerFormFields } from "../../data/authFormFields";
-import { useRegister } from "../../hooks/useRegister";
 import useRegisterForm from "../../hooks/useRegisterForm";
 
 import AuthForm from "../AuthForm/AuthForm";
@@ -19,7 +19,7 @@ const Register = () => {
       notice={{
         text: noticeMessage || "Уже есть аккаунт?",
         linkText: noticeMessage ? "" : "Войдите",
-        href: noticeMessage ? undefined : "/login",
+        href: noticeMessage ? undefined : "/auth/login",
         type: noticeType,
       }}
     />

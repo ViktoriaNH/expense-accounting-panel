@@ -6,11 +6,11 @@ const Welcome = () => {
   const navigate = useNavigate();
 
   const onLoginClick = () => {
-    navigate("/login");
+    navigate("/auth/login");
   };
 
   const onRegisterClick = () => {
-    navigate("/register");
+    navigate("/auth/register");
   };
 
   return (
@@ -22,7 +22,7 @@ const Welcome = () => {
         <div className="welcome__identify">
           <img
             src="/src/assets/icons/welcome-logo.svg"
-            alt="Главный логотип"
+            alt=""
             width="40"
             height="40"
             loading="eager"
@@ -34,7 +34,7 @@ const Welcome = () => {
           </p>
         </div>
 
-        <div className="welcome__decription">
+        <div className="welcome__description">
           Панель автоматически распределит расходы и построит отчёты <br />в
           графиках и таблицах.
         </div>

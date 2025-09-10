@@ -1,6 +1,24 @@
 
-const ResetPassword = () => {
+import { resetPasswordFormFields } from "../../data/authFormFields";
 
+const ResetPassword = () => {
+    const resetPasswordTitle = 'Сброс пароля'
+
+
+    return (
+        <AuthForm 
+        title={resetPasswordTitle}
+        fields={resetPasswordFormFields}
+        sumbitTeext={resetPasswordTitle}
+        //  onSubmit={}
+    //   notice={{
+    //     text: noticeMessage || "Уже есть аккаунт?",
+    //     linkText: noticeMessage ? "" : "Войдите",
+    //     href: noticeMessage ? undefined : "/auth/login",
+    //     type: noticeType,
+    //   }}
+        />
+    )
 }
 
 

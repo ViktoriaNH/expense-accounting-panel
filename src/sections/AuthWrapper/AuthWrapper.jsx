@@ -7,7 +7,7 @@ const AuthWrapper = ({ onLogin }) => {
     <div className="auth-wrapper">
       <Routes>
         <Route
-          path="login"
+          path="auth/login"
           element={
             <>
               <Login onLogin={onLogin} />
@@ -15,7 +15,7 @@ const AuthWrapper = ({ onLogin }) => {
           }
         />
         <Route
-          path="register"
+          path="auth/register"
           element={
             <>
               <Register onLogin={onLogin} />
@@ -23,7 +23,15 @@ const AuthWrapper = ({ onLogin }) => {
           }
         />
         <Route
-          path="forgot-password"
+          path="auth/forgot-password"
+          element={
+            <>
+              <ForgotPassword onLogin={onLogin} />
+            </>
+          }
+        />
+        <Route
+          path="auth/reset-password"
           element={
             <>
               <ForgotPassword onLogin={onLogin} />
