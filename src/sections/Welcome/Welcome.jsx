@@ -14,8 +14,8 @@ const Welcome = () => {
   };
 
   return (
-    <section className="welcome" aria-labelledby={titleId}>
-      <div className="welcome__inner container">
+    <section className="welcome " aria-labelledby={titleId}>
+      <div className="welcome__inner container ">
         <div className="welcome__message">
           <p>Добро пожаловать!</p>
         </div>

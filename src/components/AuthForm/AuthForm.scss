@@ -1,6 +1,14 @@
 .auth {
+  @include flex-center(100px, row);
+
+  &__logo {
+    position: absolute;
+    top: 16px;
+    left: fluid(104, 60); // не нравится это решение!!!!!
+  }
+
   &__form {
-    border: solid 1px red;
+    border: solid 1px rgb(72, 0, 255);
     width: fluid(394, 100);
     position: relative;
     margin: 0 auto;
@@ -20,13 +28,14 @@
   }
 
   &__group {
-    display: flex;
-    flex-direction: column;
-
     &-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+
+    &:not(first-of-type) {
+      margin-bottom: 16px;
     }
   }
 
@@ -48,20 +57,24 @@
 
   .auth__input {
     height: fluid(47, 20);
-    // border-radius: var(--border-radius-xxxs);
-    // background-color: #906d6d;
+    border-radius: var(--border-radius-xxxs);
+    background-color: var(--color-backround-input-normal);
     outline: none;
+    width: 100%;
   }
 
   &__button {
     padding-block: 13px 12px;
 
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 24px;
+    margin-bottom: 48px;
   }
 
   &__notice {
+    @include text-body-intro(16);
+
     text-align: center;
+    margin-top: 33px;
   }
 }
 

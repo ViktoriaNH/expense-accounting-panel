@@ -17,7 +17,7 @@ const Login = () => {
       notice={{
         text: noticeMessage || "Вы еще не зарегистрированы?",
         linkText: noticeMessage ? "" : "Регистрация",
-        href: noticeMessage ? undefined : "/register",
+        href: noticeMessage ? undefined : "/auth/register",
         type: noticeType,
       }}
     />

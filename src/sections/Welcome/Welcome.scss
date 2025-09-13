@@ -1,7 +1,7 @@
 .welcome {
   background: url("../../assets/images/welcome-bg.webp") no-repeat center /
     cover;
-      min-height: 100vh;
+  min-height: 100vh;
 
   &__inner {
     text-align: center;
@@ -12,7 +12,7 @@
   }
 
   &__message {
-       margin-top: 120px;
+    margin-top: 120px;
     @include text-body-intro(20, 10);
 
     margin-bottom: 24px;
@@ -24,10 +24,13 @@
     margin-bottom: fluid(32);
 
     @include text-main(18, 16);
+
+    h1 {
+      color: var(--color-background-button-primary);
+    }
   }
 
   &__decription {
-    margin-bottom: fluid(60);
     color: var(--color-text-secondary);
 
     @include text-main(16, 16);
@@ -39,6 +42,7 @@
     display: flex;
     justify-content: center;
     gap: 16px;
+    margin-top: fluid(60);
 
     @include text-button;
   }

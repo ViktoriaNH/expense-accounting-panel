@@ -3,15 +3,18 @@
 --color-text-secondary: #2d2c2c;
 --color-text-main: #333333;
 
---color-background-button-primary: #918bff;
+--color-background-button-primary: #5A77F7;
 --color-background-button-secondary: #ffffff;
 
 --color-background-button-primary-hover: #6360a4;
 --color-background-button-primary-pressed: #232238;
 --color-background-button-primary-disabled: #a8a8ad;
 
+--color-backround-input-normal: #CDCEDF;
 
+  // --border: var(--border-width-s) solid var(--color-black-15);
 
+--color-outline-input-normal: #B9BBDA;
 
 
   // --color-primary: #2ab673;
@@ -53,9 +56,9 @@
   --font-family-headline: "Nunito", sans-serif;
 
   --container-width: #{fluid($container-desktop-width, $container-mobile-width)};
-  --container-padding-x: 16px;
+  --container-padding-x: 104px;
 
-  --section-padding-y: #{fluid(75, 40)};
+  // --section-padding-y: #{fluid(75, 40)};
 
   --transition-duration: 0.2s;
   --transition-duration-longer: 0.4s;
