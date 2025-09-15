@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./Welcome.scss";
+import Button from "../../components/Button/Button";
 
 const Welcome = () => {
   const titleId = "welcome-title";
@@ -40,12 +41,8 @@ const Welcome = () => {
         </div>
 
         <div className="welcome__auth">
-          <button className="button button--login" onClick={onLoginClick}>
-            Войти
-          </button>
-          <button className="button button--register" onClick={onRegisterClick}>
-            Зарегистрироваться
-          </button>
+          <Button variant="login" submitText="Войти" onClick={onLoginClick} />
+            <Button variant="register" submitText="Зарегистрироваться" onClick={onRegisterClick} />
         </div>
       </div>
     </section>

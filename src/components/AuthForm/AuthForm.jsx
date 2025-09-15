@@ -1,8 +1,9 @@
-
 import "./AuthForm.scss";
 import { Link, useNavigate } from "react-router-dom";
 import iconBack from "../../assets/icons/icon-back.svg";
 import Input from "../Input/Input";
+import Button from "../Button/Button";
+// import formsImg from "../../assets/images/forms-img.jpg";
 
 const AuthForm = ({
   title,
@@ -22,79 +23,76 @@ const AuthForm = ({
   // const errorId = `auth-error-${uid}`;
 
   return (
-    <section className="auth container">
-      <div className="auth__logo">
-        <img
-          src="/src/assets/icons/welcome-logo.svg"
-          alt=""
-          width="32"
-          height="32"
-          loading="eager"
-        />
-      </div>
-      <div className="auth__inner">
-        <form
-          className="auth__form"
-          aria-labelledby={title}
-          onSubmit={onSubmit}
-        >
+    <section className="auth">
+      <div className="auth__inner container">
+        <div className="auth__logo">
           <img
-            className="auth__icon"
-            src={iconBack}
-            alt="Назад"
-            width={16}
-            height={16}
-            onClick={() => navigate("/welcome")}
+            src="/src/assets/icons/welcome-logo.svg"
+            alt=""
+            width="32"
+            height="32"
+            loading="eager"
           />
+        </div>
 
-          <h2 id={title}>{title}</h2>
+        <div className="auth__form-inner">
+          <form
+            className="auth__form"
+            aria-labelledby={title}
+            onSubmit={onSubmit}
+          >
+            <img
+              className="auth__icon"
+              src={iconBack}
+              alt="Назад"
+              width={16}
+              height={16}
+              onClick={() => navigate("/welcome")}
+            />
 
+            <h2 id={title}>{title}</h2>
 
-         <Input fields={fields}/>
+            <Input fields={fields} />
 
+            {error && (
+              <div
+                id="auth-error"
+                className="auth__input auth__input--error"
+                role="alert"
+                aria-live="polite"
+              >
+                Неверный Email или пароль. Попробуйте ещё раз.
+              </div>
+            )}
 
-          {error && (
-            <div
-              id="auth-error"
-              className="auth__input auth__input--error"
-              role="alert"
-              aria-live="polite"
-            >
-              Неверный Email или пароль. Попробуйте ещё раз.
-            </div>
-          )}
+            <Button submitText={submitText} variant="login"/>
 
-          <button className="auth__button" type="submit">
-            {submitText}
-          </button>
+            <hr className="auth__divider" />
 
-          <hr className="auth__divider" />
+            {notice && (
+              <div
+                className={`auth__notice ${
+                  notice.type === "success"
+                    ? "auth__notice--success"
+                    : notice.type === "error"
+                    ? "auth__notice--error"
+                    : ""
+                }`}
+              >
+                <p>
+                  {notice.text}{" "}
+                  {notice.linkText && notice.href && (
+                    <Link to={notice.href}>{notice.linkText}</Link>
+                  )}
+                </p>
+              </div>
+            )}
+          </form>
+        </div>
 
-          {notice && (
-            <div
-              className={`auth__notice ${
-                notice.type === "success"
-                  ? "auth__notice--success"
-                  : notice.type === "error"
-                  ? "auth__notice--error"
-                  : ""
-              }`}
-            >
-              <p>
-                {notice.text}{" "}
-                {notice.linkText && notice.href && (
-                  <Link to={notice.href}>{notice.linkText}</Link>
-                )}
-              </p>
-            </div>
-          )}
-        
-        
-        </form>
-      </div>
-
-      <div className="auth__image">
-        <img width={604} />
+        {/* <div className="auth__image">
+        <img src={formsImg} width={604} />
+      </div> */}
       </div>
     </section>
   );

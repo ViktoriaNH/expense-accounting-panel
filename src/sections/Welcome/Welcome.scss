@@ -1,5 +1,5 @@
 .welcome {
-  background: url("../../assets/images/welcome-bg.webp") no-repeat center /
+  background: url("/src/assets/images/welcome-bg.webp") no-repeat center /
     cover;
   min-height: 100vh;
 
@@ -47,39 +47,5 @@
     @include text-button;
   }
 
-  .button--login {
-    background-color: var(--color-background-button-primary);
-    border: none;
-    color: var(--color-background-button-secondary);
 
-    @include hover {
-      background-color: var(--color-background-button-primary-hover);
-    }
-
-    &:active {
-      background-color: var(--color-background-button-primary-pressed);
-    }
-
-    &:disabled {
-      background-color: var(--color-background-button-primary-disabled);
-    }
-  }
-
-  .button--register {
-    background-color: var(--color-background-button-secondary);
-    color: var(--color-background-button-primary);
-    border: solid 1px var(--color-background-button-primary);
-
-    @include hover {
-      border-color: var(--color-background-button-primary-hover);
-      color: var(--color-background-button-primary-hover);
-    }
-    &:active {
-      background-color: var(--color-background-button-primary-pressed);
-    }
-
-    &:disabled {
-      background-color: var(--color-background-button-primary-disabled);
-    }
-  }
 }

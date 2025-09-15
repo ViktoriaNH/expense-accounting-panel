@@ -130,3 +130,7 @@
   line-height: $line-height;
   text-transform: uppercase;
 }
+
+@mixin input-border($color-var) {
+  border: 1px solid var($color-var);
+}

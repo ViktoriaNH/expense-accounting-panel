@@ -75,6 +75,7 @@ textarea,
 select,
 svg * {
   transition-duration: var(--transition-duration);
+  
 }
 
 a {
@@ -89,9 +90,9 @@ a {
     color: var(--color-accent);
   }
 
-  &[class] {
-    text-decoration: none;
-  }
+  // &[class] {
+  //   text-decoration: none;
+  // }
 }
 
 :focus-visible {

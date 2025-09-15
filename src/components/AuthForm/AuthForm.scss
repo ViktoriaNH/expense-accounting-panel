@@ -1,5 +1,8 @@
 .auth {
-  @include flex-center(100px, row);
+  @include flex-center(129px, row);
+
+  background: url("/src/assets/images/login-bg.webp") no-repeat center / cover;
+  min-height: 100vh;
 
   &__logo {
     position: absolute;
@@ -8,12 +11,9 @@
   }
 
   &__form {
-    border: solid 1px rgb(72, 0, 255);
     width: fluid(394, 100);
     position: relative;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
   }
 
   &__icon {
@@ -27,47 +27,15 @@
     letter-spacing: 0.64px;
   }
 
-  &__group {
-    &-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    &:not(first-of-type) {
-      margin-bottom: 16px;
-    }
+  &__image {
+    max-height: 100vh;
+    border: 1px solid red;
   }
 
-  &__label {
-    @include text-main(14, 8);
-    letter-spacing: -0.154px;
-
-    color: var(--color-text-main);
-  }
-
-  .auth__forgot {
-    // не получается через & из-за Link
-    @include text-main(14, 8, 300);
-
-    display: inline-block;
-    text-decoration: underline;
-    white-space: nowrap;
-  }
-
-  .auth__input {
-    height: fluid(47, 20);
-    border-radius: var(--border-radius-xxxs);
-    background-color: var(--color-backround-input-normal);
-    outline: none;
-    width: 100%;
-  }
-
-  &__button {
-    padding-block: 13px 12px;
-
+  .button--login {
     margin-top: 24px;
     margin-bottom: 48px;
+    max-width: 100%;
   }
 
   &__notice {
@@ -93,17 +61,3 @@
 
 //   margin-top: 12px;
 // }
-
-.checkbox-wrapper {
-  cursor: pointer;
-  margin-top: 4px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  @include text-main(12, 8, 300);
-}
-
-input[type="checkbox"] {
-  @include square(16px);
-  cursor: pointer;
-}

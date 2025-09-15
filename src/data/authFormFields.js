@@ -1,3 +1,4 @@
+import { emailIcons } from "./inputIcons";
 
 export const loginFormFields = [
   {
@@ -19,20 +20,18 @@ export const loginFormFields = [
     maxLength: 20,
 
     extra: {
-      type: 'link',
-      text: 'Забыли пароль?',
-      href: '/auth/forgot-password'
-    }
+      type: "link",
+      text: "Забыли пароль?",
+      href: "/auth/forgot-password",
+    },
   },
 
   {
-    id: 'remember',
-    type: 'checkbox',
-    name: 'remember',
-    label: 'Запомнить меня',
-  }
-
-
+    id: "remember",
+    type: "checkbox",
+    name: "remember",
+    label: "Запомнить меня",
+  },
 ];
 
 export const registerFormFields = [
@@ -53,6 +52,9 @@ export const registerFormFields = [
     required: true,
     minLength: 6,
     maxLength: 30,
+    placeholder: 'example123@mail.com',
+    iconLeft: emailIcons.iconLeft,
+    iconRight: emailIcons.iconRightEror,
   },
   {
     id: "password",
@@ -75,28 +77,30 @@ export const registerFormFields = [
 ];
 
 export const forgotPasswordFormFields = [
- {
+  {
     id: "email",
     name: "email",
     label: "Email",
     type: "email",
     required: true,
     minLength: 6,
-    maxLength: 30
-  }
-]
+    maxLength: 30,
+ 
+  },
+];
 
 export const resetPasswordFormFields = [
- {
+  {
     id: "email",
     name: "email",
     label: "Email",
     type: "email",
     required: true,
     minLength: 6,
-    maxLength: 30
+    maxLength: 30,
+
   },
-    {
+  {
     id: "reset_code",
     name: "reset_code",
     label: "Код из письма",
@@ -105,7 +109,7 @@ export const resetPasswordFormFields = [
     minLength: 6,
     maxLength: 6,
   },
-   {
+  {
     id: "new_password",
     name: "new_password",
     label: "Новый пароль",
@@ -114,5 +118,4 @@ export const resetPasswordFormFields = [
     minLength: 6,
     maxLength: 20,
   },
-
-]
+];

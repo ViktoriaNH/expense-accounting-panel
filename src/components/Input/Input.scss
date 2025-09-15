@@ -1,0 +1,184 @@
+//   &__group {
+//     &-row {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//     }
+
+//     &:not(first-of-type) {
+//       margin-bottom: 16px;
+//     }
+//   }
+
+//   &__label {
+//     @include text-main(14, 8);
+//     letter-spacing: -0.154px;
+
+//     color: var(--color-text-main);
+//   }
+
+//   .form__forgot-password {
+//     // не получается через & из-за Link
+//     @include text-main(14, 8, 300);
+
+//     display: inline-block;
+//     text-decoration: underline;
+//     white-space: nowrap;
+//   }
+
+//   &__input {
+//     height: fluid(47, 20);
+//     border-radius: var(--border-radius-xxxs);
+//     background-color: var(--color-backround-input-normal);
+//     outline: none;
+//     width: 100%;
+//   }
+
+// .form-chekbox {
+//   cursor: pointer;
+//   margin-top: 4px;
+//   display: flex;
+//   align-items: center;
+//   gap: 8px;
+// }
+
+// .form__chekbox-input{
+//   @include square(16px);
+//   cursor: pointer;
+// }
+
+// .form__chekbox-label {
+//       @include text-main(12, 8, 300);
+// }
+
+.form {
+  &__group {
+    &:not(:last-of-type) {
+      margin-bottom: 16px;
+    }
+
+    &-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__label {
+    @include text-main(14, 8);
+    letter-spacing: -0.154px;
+    color: var(--color-text-main);
+  }
+
+  &__input-container {
+    position: relative; // чтобы абсолютные элементы позиционировались относительно контейнера
+    width: 100%;
+  }
+
+  &__input-icon-left,
+  &__input-icon-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; // чтобы иконка не блокировала ввод
+  }
+
+  &__input-icon-left {
+    left: 2px;
+  }
+
+  &__input-icon-right {
+    right: 50px;
+  }
+
+  &__input {
+    height: fluid(47, 20);
+
+    border-radius: var(--border-radius-xxxs);
+    background-color: var(--color-background-input-main);
+    border: none;
+    width: 100%;
+    padding: 5px;
+    transition: border 1s, background-color 0.3s;
+
+    &:hover {
+      @include input-border(--color-border-input-second);
+    }
+
+    &--pressed {
+      @include input-border(--color-border-input-second);
+    }
+
+    &--typing {
+      @include input-border(--color-border-input-second);
+    }
+
+    &--filled {
+      @include input-border(--color-border-input-filled);
+    }
+
+    &--error {
+      @include input-border(--color-border-input-error);
+      background-color: var(--color-background-input-second);
+    }
+
+    &--disabled-success {
+      @include input-border(--color-border-input-disabled-success);
+      background-color: var(--color-background-input-second);
+    }
+
+    &--disabled-error {
+      @include input-border(--color-border-input-disabled-error);
+      background-color: var(--color-background-input-second);
+    }
+
+    &--disabled-normal {
+      @include input-border(--color-border-input-disabled-normal);
+      background-color: var(--color-background-input-second);
+    }
+
+    // &--focus {
+    //   border-color: var(--color-focus);
+    //   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+    // }
+
+    // &--error {
+    //   border-color: var(--color-error);
+    //   background-color: var(--color-background-error);
+    // }
+
+    // &--success {
+    //   border-color: var(--color-success);
+    //   background-color: var(--color-background-success);
+    // }
+
+    // &--disabled {
+    //   background-color: var(--color-background-disabled);
+    //   cursor: not-allowed;
+    // }
+  }
+
+  &__forgot-password {
+    @include text-main(14, 8, 300);
+    display: inline-block;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+
+    &-input {
+      @include square(16px);
+      cursor: pointer;
+    }
+
+    &-label {
+      @include text-main(12, 8, 300);
+    }
+  }
+}
