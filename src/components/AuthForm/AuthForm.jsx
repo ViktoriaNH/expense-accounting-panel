@@ -65,20 +65,12 @@ const AuthForm = ({
               </div>
             )}
 
-            <Button submitText={submitText} variant="login"/>
+            <Button submitText={submitText} variant="login" />
 
             <hr className="auth__divider" />
 
             {notice && (
-              <div
-                className={`auth__notice ${
-                  notice.type === "success"
-                    ? "auth__notice--success"
-                    : notice.type === "error"
-                    ? "auth__notice--error"
-                    : ""
-                }`}
-              >
+              <div className="auth__notice">
                 <p>
                   {notice.text}{" "}
                   {notice.linkText && notice.href && (

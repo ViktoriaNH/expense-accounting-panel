@@ -1,56 +1,3 @@
-//   &__group {
-//     &-row {
-//       display: flex;
-//       align-items: center;
-//       justify-content: space-between;
-//     }
-
-//     &:not(first-of-type) {
-//       margin-bottom: 16px;
-//     }
-//   }
-
-//   &__label {
-//     @include text-main(14, 8);
-//     letter-spacing: -0.154px;
-
-//     color: var(--color-text-main);
-//   }
-
-//   .form__forgot-password {
-//     // не получается через & из-за Link
-//     @include text-main(14, 8, 300);
-
-//     display: inline-block;
-//     text-decoration: underline;
-//     white-space: nowrap;
-//   }
-
-//   &__input {
-//     height: fluid(47, 20);
-//     border-radius: var(--border-radius-xxxs);
-//     background-color: var(--color-backround-input-normal);
-//     outline: none;
-//     width: 100%;
-//   }
-
-// .form-chekbox {
-//   cursor: pointer;
-//   margin-top: 4px;
-//   display: flex;
-//   align-items: center;
-//   gap: 8px;
-// }
-
-// .form__chekbox-input{
-//   @include square(16px);
-//   cursor: pointer;
-// }
-
-// .form__chekbox-label {
-//       @include text-main(12, 8, 300);
-// }
-
 .form {
   &__group {
     &:not(:last-of-type) {
@@ -73,6 +20,8 @@
   &__input-container {
     position: relative; // чтобы абсолютные элементы позиционировались относительно контейнера
     width: 100%;
+    display: flex;
+    flex-direction: row;
   }
 
   &__input-icon-left,
@@ -84,7 +33,7 @@
   }
 
   &__input-icon-left {
-    left: 2px;
+    left: 8px;
   }
 
   &__input-icon-right {
@@ -99,17 +48,17 @@
     border: none;
     width: 100%;
     padding: 5px;
-    transition: border 1s, background-color 0.3s;
+    padding-left: 36px;
 
     &:hover {
       @include input-border(--color-border-input-second);
     }
 
-    &--pressed {
+    &:active {
       @include input-border(--color-border-input-second);
     }
 
-    &--typing {
+    &:focus {
       @include input-border(--color-border-input-second);
     }
 
@@ -132,10 +81,21 @@
       background-color: var(--color-background-input-second);
     }
 
-    &--disabled-normal {
+    &:disabled {
       @include input-border(--color-border-input-disabled-normal);
       background-color: var(--color-background-input-second);
     }
+    &:checked {
+      background-color: red;
+    } // длля чекбокса
+
+    &::placeholder {
+      color: var(--color-placeholder);
+    }
+
+    // &:typing::placeholder {
+    //   color: transparent;
+    // }
 
     // &--focus {
     //   border-color: var(--color-focus);

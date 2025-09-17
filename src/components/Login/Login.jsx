@@ -6,7 +6,7 @@ import AuthForm from "../AuthForm/AuthForm";
 const Login = () => {
   const loginTitle = "Войти в аккаунт";
   const submitTitle = 'Войти';
-  const { handleSubmit, noticeType, noticeMessage } = useLoginForm(loginUser);
+  const { handleSubmit } = useLoginForm(loginUser);
 
   return (
     <AuthForm
@@ -15,10 +15,9 @@ const Login = () => {
       submitText={submitTitle}
       onSubmit={handleSubmit}
       notice={{
-        text: noticeMessage || "Вы еще не зарегистрированы?",
-        linkText: noticeMessage ? "" : "Регистрация",
-        href: noticeMessage ? undefined : "/auth/register",
-        type: noticeType,
+        text: "Вы еще не зарегистрированы?",
+        linkText: "Регистрация",
+        href: "/auth/register",
       }}
     />
   );
