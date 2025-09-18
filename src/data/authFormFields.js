@@ -53,8 +53,9 @@ export const registerFormFields = [
     minLength: 6,
     maxLength: 30,
     placeholder: "example123@mail.com",
-    iconLeft: emailIcons.iconLeft,
-    iconRightError: emailIcons.iconError,
+    iconLeft: emailIcons.leftIcon,
+    iconRightError: emailIcons.rightIconErr,
+    iconRightSuccess: emailIcons.rightIconSucc,
 
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
@@ -85,13 +86,24 @@ export const registerFormFields = [
 
 export const forgotPasswordFormFields = [
   {
-    id: "email",
+     id: "email",
     name: "email",
     label: "Email",
     type: "email",
     required: true,
     minLength: 6,
     maxLength: 30,
+    placeholder: "example123@mail.com",
+    iconLeft: emailIcons.leftIcon,
+    iconRightError: emailIcons.rightIconErr,
+    iconRightSuccess: emailIcons.rightIconSucc,
+
+    value: undefined, // если родитель контролирует поле — туда приходит строка
+    disabled: false,
+    error: null, // string с текстом ошибки или null
+    success: false, // булевый флаг (или тоже string с сообщением)
+    onChange: undefined, // опц. функция (для контролируем. полей)
+    message: null, // хэлпер текст
   },
 ];
 
@@ -104,6 +116,17 @@ export const resetPasswordFormFields = [
     required: true,
     minLength: 6,
     maxLength: 30,
+    placeholder: "example123@mail.com",
+    iconLeft: emailIcons.leftIcon,
+    iconRightError: emailIcons.rightIconErr,
+    iconRightSuccess: emailIcons.rightIconSucc,
+
+    value: undefined, // если родитель контролирует поле — туда приходит строка
+    disabled: false,
+    error: null, // string с текстом ошибки или null
+    success: false, // булевый флаг (или тоже string с сообщением)
+    onChange: undefined, // опц. функция (для контролируем. полей)
+    message: null, // хэлпер текст
   },
   {
     id: "reset_code",

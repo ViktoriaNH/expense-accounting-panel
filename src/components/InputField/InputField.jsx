@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 // export default InputField;
 
-const InputField = ({ field, message }) => {
+const InputField = ({ field }) => {
   const [value, setValue] = useState("");
   const [touched, setTouched] = useState(false);
 
@@ -40,7 +40,8 @@ const InputField = ({ field, message }) => {
     }
   }
 
-  const hasError = Boolean(errorMessage);
+  const hasError = Boolean(errorMessage || field.error); // булевое, есть ли ошибка вообще, серверная или локальная (что юзер ввел или не ввел)
+  const message = errorMessage || field.error || ""; // field.error - будет серверная ошибка
 
   // вычисляем классы
   let inputClass = "form__input";
@@ -55,11 +56,15 @@ const InputField = ({ field, message }) => {
     inputClass += " form__input--filled";
   }
 
+  // рендер иконки справа
+
+  const isSuccess = isFilled && !hasError;
+
   let rightIcon = null;
-  if (hasError) {
+  if (hasError && field.iconRightError) {
     rightIcon = field.iconRightError;
-  } else if (field.success) {
-    rightIcon = field.iconRight;
+  } else if (isSuccess && field.iconRightSuccess) {
+    rightIcon = field.iconRightSuccess;
   }
 
   // чекбокс отдельный кейс
@@ -129,8 +134,13 @@ const InputField = ({ field, message }) => {
 
       {message && (
         <div className="form__message">
-          <img src="" alt="" width={16} height={16} />
-          <p>Привет</p>
+          {hasError && field.iconRightError && (
+            <img src={field.iconRightError} alt="" width={16} height={16} />
+          )}
+          {isSuccess && field.iconRightSuccess && (
+            <img src={field.iconRightSuccess} alt="" width={16} height={16} />
+          )}
+          <p>{message}</p>
         </div>
       )}
     </div>

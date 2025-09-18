@@ -30,15 +30,15 @@
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none; // чтобы иконка не блокировала ввод
+     @include square(fluid(24, 12));
   }
 
   &__input-icon-left {
     left: fluid(8, 3);
-    @include square(fluid(24, 12));
   }
 
   &__input-icon-right {
-    right: 50px;
+    right: fluid(8, 3);
   }
 
   &__input {
@@ -109,7 +109,8 @@
     &-input {
       @include square(16px);
       cursor: pointer;
-      accent-color: var(--color-background-input-main);
+      accent-color: var(--color-background-button-primary);
+
     }
 
     &-label {
