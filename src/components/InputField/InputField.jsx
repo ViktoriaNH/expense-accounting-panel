@@ -1,18 +1,9 @@
 import { useState } from "react";
 import "./InputField.scss";
 import { Link } from "react-router-dom";
-
-// const InputField = () => {
-
-//     const [value, setValue] = useState();
-
-//       // isFilled можно не хранить в отдельном useState,
-//   // а вычислять прямо из value
-//     const isFilled = value.tirm !== 'null';
-
-// }
-
-// export default InputField;
+import { validateInputs } from "../../utils/validateInput";
+import { getInputClass } from "../../utils/getInputClass";
+import { setRightIcon } from "../../utils/setRightIcon";
 
 const InputField = ({ field }) => {
   const [value, setValue] = useState("");
@@ -30,42 +21,12 @@ const InputField = ({ field }) => {
     setTouched(true); // показываем ошибки только после blur
   }
 
-  let errorMessage = "";
+const { hasError, message } = validateInputs(field, value, touched);
+const isSuccess = touched && isFilled && !hasError;
 
-  if (touched) {
-    if (value.trim() === "") {
-      errorMessage = "Поле не может быть пустым";
-    } else if (field.type === "email" && !value.includes("@")) {
-      errorMessage = "Введите корректный e-mail";
-    }
-  }
+ const inputClass = getInputClass(field, isFilled, hasError);
+  const rightIcon = setRightIcon(field, hasError, isSuccess);
 
-  const hasError = Boolean(errorMessage || field.error); // булевое, есть ли ошибка вообще, серверная или локальная (что юзер ввел или не ввел)
-  const message = errorMessage || field.error || ""; // field.error - будет серверная ошибка
-
-  // вычисляем классы
-  let inputClass = "form__input";
-
-  if (field.disabled) {
-    inputClass += " form__input--disabled";
-  } else if (hasError) {
-    inputClass += " form__input--error";
-  } else if (field.success) {
-    inputClass += " form__input--success";
-  } else if (isFilled) {
-    inputClass += " form__input--filled";
-  }
-
-  // рендер иконки справа
-
-  const isSuccess = isFilled && !hasError;
-
-  let rightIcon = null;
-  if (hasError && field.iconRightError) {
-    rightIcon = field.iconRightError;
-  } else if (isSuccess && field.iconRightSuccess) {
-    rightIcon = field.iconRightSuccess;
-  }
 
   // чекбокс отдельный кейс
   if (field.type === "checkbox") {
