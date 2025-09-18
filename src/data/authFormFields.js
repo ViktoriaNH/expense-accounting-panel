@@ -54,7 +54,7 @@ export const registerFormFields = [
     maxLength: 30,
     placeholder: "example123@mail.com",
     iconLeft: emailIcons.iconLeft,
-    iconRight: emailIcons.iconRightEror,
+    iconRightError: emailIcons.iconError,
 
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
