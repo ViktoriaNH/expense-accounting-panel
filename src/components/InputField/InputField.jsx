@@ -2,33 +2,54 @@ import { useState } from "react";
 import "./InputField.scss";
 import { Link } from "react-router-dom";
 import { validateInputs } from "../../utils/validateInput";
-import { getInputClass } from "../../utils/getInputClass";
+import { getInputClass } from "../../utils/getInputClass&Type";
 import { setRightIcon } from "../../utils/setRightIcon";
 
 const InputField = ({ field }) => {
   const [value, setValue] = useState("");
   const [touched, setTouched] = useState(false);
+  const [showPassword, setShowPassword] = useState(true); // пароль изначально скрыт
 
-  // не хранится в реакте в useState, потому что вычисляется непосредствеено из велью
-  // это называется derived state - вычисляемое состояние
+  // не хранится в useState, потому что вычисляется из value
+  // это называется derived state — вычисляемое состояние
   const isFilled = value.trim() !== "";
 
-  function handleChange(e) {
+  // вычисляем валидацию
+  const { hasError, message } = validateInputs(
+    field,
+    value,
+    touched,
+    showPassword
+  );
+
+  // успех (галочка) показывается только после blur
+  const isSuccess = touched && isFilled && !hasError;
+
+  const handleChange = (e) => {
     setValue(e.target.value);
-  }
+  };
 
-  function handleBlur() {
-    setTouched(true); // показываем ошибки только после blur
-  }
+  const handleBlur = () => {
+    setTouched(true);
+    // показываем ошибки только после blur
+  };
 
-const { hasError, message } = validateInputs(field, value, touched);
-const isSuccess = touched && isFilled && !hasError;
+  // вычисляем динамически type, а не берем из fields
+  // нужно для отделения логики поля пароля
+  const inputType =
+    field.type === "password"
+      ? showPassword
+        ? "text"
+        : "password"
+      : field.type;
 
- const inputClass = getInputClass(field, isFilled, hasError);
-  const rightIcon = setRightIcon(field, hasError, isSuccess);
+  // вычисляем right icon
+  const rightIcon = setRightIcon(field, hasError, isSuccess, showPassword);
 
+  // класс инпута в зависимости от состояния
+  const inputClass = getInputClass(field, isFilled, hasError);
 
-  // чекбокс отдельный кейс
+  // чекбокс — отдельный кейс
   if (field.type === "checkbox") {
     return (
       <label htmlFor={field.id} className="form__checkbox">
@@ -71,7 +92,7 @@ const isSuccess = touched && isFilled && !hasError;
         <input
           id={field.id}
           name={field.name}
-          type={field.type}
+          type={inputType}
           value={value}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -80,9 +101,27 @@ const isSuccess = touched && isFilled && !hasError;
           maxLength={field.maxLength}
           placeholder={field.placeholder}
           className={inputClass}
+          // временно сделал toggle прямо в input для теста
+          onClick={() =>
+            field.id === "password" && setShowPassword((prev) => !prev)
+          }
         />
 
-        {rightIcon && (
+        {/* Для поля password — глаз или success */}
+        {field.id === "password" && rightIcon && (
+          <img
+            src={rightIcon}
+            className="form__input-icon-right"
+            alt="toggle password"
+            width={24}
+            height={24}
+            style={{ cursor: "pointer" }}
+            onClick={() => setShowPassword((prev) => !prev)}
+          />
+        )}
+
+        {/* Для остальных полей показываем ошибки/успех */}
+        {field.id !== "password" && rightIcon && (
           <img
             src={rightIcon}
             className="form__input-icon-right"

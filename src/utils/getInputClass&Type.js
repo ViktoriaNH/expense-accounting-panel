@@ -1,4 +1,4 @@
-export function getInputClass(field, isFilled, hasError) {
+export const getInputClass = (field, isFilled, hasError) => {
   let inputClass = "form__input";
 
   if (field.disabled) {
@@ -13,3 +13,7 @@ export function getInputClass(field, isFilled, hasError) {
 
   return inputClass;
 }
+
+
+
+

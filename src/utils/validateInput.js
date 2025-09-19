@@ -4,8 +4,14 @@ export const validateInputs = (field, value, touched) => {
   if (touched) {
     if (value.trim() === "") {
       errorMessage = "Поле не может быть пустым";
-    } else if (field.type === "email" && !value.includes("@")) {
+    } else if (field.id === "email" && !value.includes("@")) {
       errorMessage = "Введите корректный e-mail";
+    } else if (field.id === "username" || field.id === "password") {
+      // Только символы нельзя
+      const usernameRegex = /^(?=.*[A-Za-zА-Яа-я0-9]).{6,}$/;
+      if (!usernameRegex.test(value)) {
+        errorMessage = "Введите корректное имя пользователя";
+      }
     }
   }
 
@@ -13,4 +19,4 @@ export const validateInputs = (field, value, touched) => {
   const message = errorMessage || field.error || ""; // field.error - будет серверная ошибка
 
   return { hasError, message };
-}
+};

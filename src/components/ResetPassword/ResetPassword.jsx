@@ -1,12 +1,13 @@
 
 import { resetPasswordFormFields } from "../../data/authFormFields";
+import AuthForm from './../AuthForm/index';
 
 const ResetPassword = () => {
     const resetPasswordTitle = 'Сброс пароля'
 
 
     return (
-        <AuthForm 
+        <AuthForm
         title={resetPasswordTitle}
         fields={resetPasswordFormFields}
         sumbitTeext={resetPasswordTitle}

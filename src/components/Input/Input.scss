@@ -12,9 +12,7 @@
   }
 
   &__label {
-    @include text-main(14, 8);
-    letter-spacing: -0.154px;
-    color: var(--color-text-main);
+    @include text-label(14, 8);
   }
 
   &__input-container {
