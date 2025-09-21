@@ -1,0 +1,17 @@
+.form__input-container {
+  position: relative;
+}
+
+.form__input-icon-status {
+  position: absolute;
+  right: 40px; 
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form__input-icon-eye {
+  position: absolute;
+  right: 8px; 
+  top: 50%;
+  transform: translateY(-50%);
+}

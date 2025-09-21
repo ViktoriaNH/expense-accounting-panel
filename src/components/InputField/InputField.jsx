@@ -3,12 +3,12 @@ import "./InputField.scss";
 import { Link } from "react-router-dom";
 import { validateInputs } from "../../utils/validateInput";
 import { getInputClass } from "../../utils/getInputClass&Type";
-import { setRightIcon } from "../../utils/setRightIcon";
+// import { setRightIcon } from "../../utils/setRightIcon";
 
 const InputField = ({ field }) => {
   const [value, setValue] = useState("");
   const [touched, setTouched] = useState(false);
-  const [showPassword, setShowPassword] = useState(true); // пароль изначально скрыт
+  const [showPassword, setShowPassword] = useState(false);
 
   // не хранится в useState, потому что вычисляется из value
   // это называется derived state — вычисляемое состояние
@@ -44,12 +44,12 @@ const InputField = ({ field }) => {
       : field.type;
 
   // вычисляем right icon
-  const rightIcon = setRightIcon(field, hasError, isSuccess, showPassword);
+  // const rightIcon = setRightIcon(field, hasError, isSuccess, showPassword);
 
   // класс инпута в зависимости от состояния
   const inputClass = getInputClass(field, isFilled, hasError);
 
-  // чекбокс — отдельный кейс
+  // чекбокс отдельно
   if (field.type === "checkbox") {
     return (
       <label htmlFor={field.id} className="form__checkbox">
@@ -101,17 +101,14 @@ const InputField = ({ field }) => {
           maxLength={field.maxLength}
           placeholder={field.placeholder}
           className={inputClass}
-          // временно сделал toggle прямо в input для теста
-          onClick={() =>
-            field.id === "password" && setShowPassword((prev) => !prev)
-          }
         />
 
-        {/* Для поля password — глаз или success */}
-        {field.id === "password" && rightIcon && (
+        {/* // иконка глазик всегда справа  */}
+
+        {field.type === "password" && (
           <img
-            src={rightIcon}
-            className="form__input-icon-right"
+            src={showPassword ? field.iconOpen : field.iconClose}
+            className="form__input-icon-eye"
             alt="toggle password"
             width={24}
             height={24}
@@ -119,13 +116,14 @@ const InputField = ({ field }) => {
             onClick={() => setShowPassword((prev) => !prev)}
           />
         )}
+{/* 
+       показываем икноки ошибка / успех  */}
 
-        {/* Для остальных полей показываем ошибки/успех */}
-        {field.id !== "password" && rightIcon && (
+        {(hasError || isSuccess) && (
           <img
-            src={rightIcon}
-            className="form__input-icon-right"
-            alt=""
+            src={hasError ? field.iconRightError : field.iconRightSuccess}
+            className="form__input-icon-status"
+            alt={hasError ? "error" : "success"}
             width={24}
             height={24}
           />

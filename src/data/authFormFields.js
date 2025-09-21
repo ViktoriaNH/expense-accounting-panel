@@ -1,4 +1,4 @@
-import { emailIcons } from "./inputIcons";
+import { inputIcons } from "./inputIcons";
 
 // избавить от дублирования !!!!
 
@@ -11,9 +11,9 @@ export const loginFormFields = [
     required: true,
     minLength: 6,
     maxLength: 20,
-    iconLeft: emailIcons.leftIconUsername,
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconLeft: inputIcons.leftIconUsername,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
     error: null, // string с текстом ошибки или null
@@ -29,6 +29,7 @@ export const loginFormFields = [
     required: true,
     minLength: 6,
     maxLength: 20,
+    placeholder: 'Введите Ваш пароль',
 
     extra: {
       type: "link",
@@ -36,14 +37,14 @@ export const loginFormFields = [
       href: "/auth/forgot-password",
     },
 
-    iconLeft: emailIcons.leftIconPassword,
-    iconRight: emailIcons.rightIconPassword,
+    iconLeft: inputIcons.leftIconPassword,
+    iconRight: inputIcons.rightIconPassword,
 
-    iconClose: emailIcons.rightIconPasswordClose,
-    iconOpen: emailIcons.rightIconPasswordOpen,
+    iconClose: inputIcons.rightIconPasswordClose,
+    iconOpen: inputIcons.rightIconPasswordOpen,
 
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
     error: null, // string с текстом ошибки или null
@@ -69,9 +70,9 @@ export const registerFormFields = [
     required: true,
     minLength: 6,
     maxLength: 20,
-    iconLeft: emailIcons.leftIconUsername,
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconLeft: inputIcons.leftIconUsername,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
     error: null, // string с текстом ошибки или null
@@ -88,9 +89,9 @@ export const registerFormFields = [
     minLength: 6,
     maxLength: 30,
     placeholder: "example123@mail.com",
-    iconLeft: emailIcons.leftIconEmail,
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconLeft: inputIcons.leftIconEmail,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
 
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
@@ -107,14 +108,15 @@ export const registerFormFields = [
     required: true,
     minLength: 6,
     maxLength: 20,
-    iconLeft: emailIcons.leftIconPassword,
-    iconRight: emailIcons.rightIconPassword,
+    placeholder: 'Введите Ваш пароль',
+    iconLeft: inputIcons.leftIconPassword,
+    iconRight: inputIcons.rightIconPassword,
 
-    iconClose: emailIcons.rightIconPasswordClose,
-    iconOpen: emailIcons.rightIconPasswordOpen,
+    iconClose: inputIcons.rightIconPasswordClose,
+    iconOpen: inputIcons.rightIconPasswordOpen,
 
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
     error: null, // string с текстом ошибки или null
@@ -128,16 +130,17 @@ export const registerFormFields = [
     label: "Повторите пароль",
     type: "password",
     required: true,
+    placeholder: 'Повторите Ваш пароль',
     minLength: 8,
     maxLength: 14,
-    iconLeft: emailIcons.leftIconPassword,
-    iconRight: emailIcons.rightIconPassword,
+    iconLeft: inputIcons.leftIconPassword,
+    iconRight: inputIcons.rightIconPassword,
 
-    iconClose: emailIcons.rightIconPasswordClose,
-    iconOpen: emailIcons.rightIconPasswordOpen,
+    iconClose: inputIcons.rightIconPasswordClose,
+    iconOpen: inputIcons.rightIconPasswordOpen,
 
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
     error: null, // string с текстом ошибки или null
@@ -157,9 +160,9 @@ export const forgotPasswordFormFields = [
     minLength: 6,
     maxLength: 30,
     placeholder: "example123@mail.com",
-    iconLeft: emailIcons.leftIconEmail,
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconLeft: inputIcons.leftIconEmail,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
 
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
@@ -180,9 +183,9 @@ export const resetPasswordFormFields = [
     minLength: 6,
     maxLength: 30,
     placeholder: "example123@mail.com",
-    iconLeft: emailIcons.leftIconEmail,
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconLeft: inputIcons.leftIconEmail,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
 
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
@@ -197,6 +200,7 @@ export const resetPasswordFormFields = [
     label: "Код из письма",
     type: "text",
     required: true,
+    placeholder: 'Введите код из письма',
     minLength: 6,
     maxLength: 6,
   },
@@ -206,16 +210,17 @@ export const resetPasswordFormFields = [
     label: "Новый пароль",
     type: "password",
     required: true,
+    placeholder: 'Введите новый пароль',
     minLength: 6,
     maxLength: 20,
-    iconLeft: emailIcons.leftIconPassword,
-    iconRight: emailIcons.rightIconPassword,
+    iconLeft: inputIcons.leftIconPassword,
+    iconRight: inputIcons.rightIconPassword,
 
-    iconClose: emailIcons.rightIconPasswordClose,
-    iconOpen: emailIcons.rightIconPasswordOpen,
+    iconClose: inputIcons.rightIconPasswordClose,
+    iconOpen: inputIcons.rightIconPasswordOpen,
 
-    iconRightError: emailIcons.rightIconErr,
-    iconRightSuccess: emailIcons.rightIconSucc,
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
     value: undefined, // если родитель контролирует поле — туда приходит строка
     disabled: false,
     error: null, // string с текстом ошибки или null

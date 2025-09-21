@@ -1,4 +1,4 @@
-export const emailIcons = {
+export const inputIcons = {
   leftIconEmail: "/src/assets/icons/forms/email-outline.svg",
   leftIconUsername: "/src/assets/icons/forms/user.svg",
   leftIconPassword: "/src/assets/icons/forms/lock.svg",
