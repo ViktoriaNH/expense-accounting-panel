@@ -7,8 +7,7 @@ import AuthForm from "../AuthForm/AuthForm";
 const Register = () => {
   const registerTitle = "Зарегистрироваться";
   const { handleRegister } = useRegister();
-  const { handleSubmit, noticeMessage, noticeType } =
-    useRegisterForm(handleRegister);
+  const { handleSubmit } = useRegisterForm(handleRegister);
 
   return (
     <AuthForm
@@ -17,10 +16,9 @@ const Register = () => {
       submitText={registerTitle}
       onSubmit={handleSubmit}
       notice={{
-        text: noticeMessage || "Уже есть аккаунт?",
-        linkText: noticeMessage ? "" : "Войдите",
-        href: noticeMessage ? undefined : "/auth/login",
-        type: noticeType,
+        text: "Уже есть аккаунт?",
+        linkText: "Войдите",
+        href: "/auth/login",
       }}
     />
   );

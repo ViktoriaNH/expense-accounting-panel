@@ -3,24 +3,25 @@ import { Link, useNavigate } from "react-router-dom";
 import iconBack from "../../assets/icons/icon-back.svg";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
-// import formsImg from "../../assets/images/forms-img.jpg";
+import { useState } from "react";
 
-const AuthForm = ({
-  title,
-  submitText,
-  fields,
-  error,
-  notice,
-  onSubmit,
-  // buttons, // для создания нескольких кнопок в профиле, это на страницу с профилем
-}) => {
-  // новая фича Реакт18+, useId генерирует уникальную строку на каждый рендер компонента, чтобы не было пересечения
-  // одинаковых id в двух компонентах login и register
-  // const uid = useId();
+const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
+  const [formStatus, setFormStatus] = useState();
   const navigate = useNavigate();
 
-  // const titleId = `auth-title-${uid}`;
-  // const errorId = `auth-error-${uid}`;
+  const isDisabled =
+    formStatus === "submit" || // отправка данных
+    formStatus === "success" || // данные отправлены, ждем переход
+    formStatus === "normal-disable" || // временная блокировка (что-то просто подвисло)
+    formStatus === "error-disable"; // блокировка при ошибке
+
+  //     Как это работает
+
+  // Пока formStatus = "idle" → isDisabled = false → поля и кнопка активны, пользователь может печатать.
+
+  // Если мы ставим formStatus = "submitting" → isDisabled = true → все поля и кнопка блокируются, чтобы пользователь не мог их трогать.
+
+  // Тоже самое для success, normal-disable и error-disable — форма полностью блокируется.
 
   return (
     <section className="auth">
@@ -52,18 +53,7 @@ const AuthForm = ({
 
             <h2 id={title}>{title}</h2>
 
-            <Input fields={fields} />
-
-            {error && (
-              <div
-                id="auth-error"
-                className="auth__input auth__input--error"
-                role="alert"
-                aria-live="polite"
-              >
-                Неверный Email или пароль. Попробуйте ещё раз.
-              </div>
-            )}
+            <Input fields={fields} isDisabled={isDisabled} />
 
             <Button submitText={submitText} variant="login" />
 

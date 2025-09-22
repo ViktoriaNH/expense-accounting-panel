@@ -15,29 +15,11 @@
     @include text-label(14, 8);
   }
 
-  &__input-container {
-    position: relative; // чтобы абсолютные элементы позиционировались относительно контейнера
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-  }
-
-  &__input-icon-left,
-  &__input-icon-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none; // чтобы иконка не блокировала ввод
-     @include square(fluid(24, 12));
-  }
 
   &__input-icon-left {
     left: fluid(8, 3);
   }
 
-  &__input-icon-right {
-    right: fluid(8, 3);
-  }
 
   &__input {
     height: fluid(47, 20);
@@ -65,8 +47,13 @@
       @include input-border(--color-border-input-filled);
     }
 
+    &--success {
+      color: var(--color-border-input-filled);
+    }
+
     &--error {
       @include input-border(--color-border-input-error);
+      color: var(--color-border-input-error);
     }
 
     &--disabled-success {
@@ -108,7 +95,6 @@
       @include square(16px);
       cursor: pointer;
       accent-color: var(--color-background-button-primary);
-
     }
 
     &-label {

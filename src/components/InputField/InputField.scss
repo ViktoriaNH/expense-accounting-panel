@@ -1,17 +1,44 @@
 .form__input-container {
   position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
+.form__input-icon-left {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  @include square(fluid(24, 12));
+}
 .form__input-icon-status {
   position: absolute;
-  right: 40px; 
   top: 50%;
+  right: 8px;
   transform: translateY(-50%);
+  pointer-events: none;
+  @include square(fluid(24, 12));
 }
 
-.form__input-icon-eye {
-  position: absolute;
-  right: 8px; 
-  top: 50%;
-  transform: translateY(-50%);
+.form__input-container--password {
+  .form__input-icon-eye {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    @include square(fluid(24, 12));
+  }
+
+  .form__input-icon-status {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    @include square(fluid(24, 12));
+  }
 }
+

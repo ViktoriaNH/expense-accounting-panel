@@ -3,7 +3,6 @@ import "./InputField.scss";
 import { Link } from "react-router-dom";
 import { validateInputs } from "../../utils/validateInput";
 import { getInputClass } from "../../utils/getInputClass&Type";
-// import { setRightIcon } from "../../utils/setRightIcon";
 
 const InputField = ({ field }) => {
   const [value, setValue] = useState("");
@@ -43,11 +42,11 @@ const InputField = ({ field }) => {
         : "password"
       : field.type;
 
-  // вычисляем right icon
-  // const rightIcon = setRightIcon(field, hasError, isSuccess, showPassword);
-
   // класс инпута в зависимости от состояния
-  const inputClass = getInputClass(field, isFilled, hasError);
+  const inputClass = `
+  ${getInputClass(field, isFilled, hasError)}
+  ${isSuccess ? "form__input--success" : ""}
+`;
 
   // чекбокс отдельно
   if (field.type === "checkbox") {
@@ -78,7 +77,11 @@ const InputField = ({ field }) => {
         )}
       </div>
 
-      <div className="form__input-container">
+      <div 
+       className={`form__input-container ${field.type === "password" ? "form__input-container--password" : ""}`}
+      
+      
+      >
         {field.iconLeft && (
           <img
             className="form__input-icon-left"
@@ -116,7 +119,7 @@ const InputField = ({ field }) => {
             onClick={() => setShowPassword((prev) => !prev)}
           />
         )}
-{/* 
+        {/* 
        показываем икноки ошибка / успех  */}
 
         {(hasError || isSuccess) && (
