@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./InputField.scss";
 import { Link } from "react-router-dom";
 import { validateInputs } from "../../utils/validateInput";
-import { getInputClass } from "../../utils/getInputClass&Type";
+import { getInputClass } from "../../utils/getInputClass";
 
 const InputField = ({ field }) => {
   const [value, setValue] = useState("");

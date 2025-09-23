@@ -4,16 +4,18 @@ import iconBack from "../../assets/icons/icon-back.svg";
 import Input from "../Input/Input";
 import Button from "../Button/Button";
 import { useState } from "react";
+import { initFieldsStatus } from "../../utils/initFieldsStatus";
+
+// родитель должен знать, какие поля success, чтобы дизэйблить кнопку
 
 const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
-  const [formStatus, setFormStatus] = useState();
   const navigate = useNavigate();
 
-  const isDisabled =
-    formStatus === "submit" || // отправка данных
-    formStatus === "success" || // данные отправлены, ждем переход
-    formStatus === "normal-disable" || // временная блокировка (что-то просто подвисло)
-    formStatus === "error-disable"; // блокировка при ошибке
+  // const isDisabled =
+  //   formStatus === "submit" || // отправка данных
+  //   formStatus === "success" || // данные отправлены, ждем переход
+  //   formStatus === "normal-disable" || // временная блокировка (что-то просто подвисло)
+  //   formStatus === "error-disable"; // блокировка при ошибке
 
   //     Как это работает
 
@@ -22,6 +24,14 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
   // Если мы ставим formStatus = "submitting" → isDisabled = true → все поля и кнопка блокируются, чтобы пользователь не мог их трогать.
 
   // Тоже самое для success, normal-disable и error-disable — форма полностью блокируется.
+
+  const [fieldsStatus, setFieldsStatus] = useState(() =>
+    initFieldsStatus(fields)
+  ); // сюда передаем маасивы с полями в зависмости от конктреной формы
+
+  const onStatusChange = () => {
+
+  }
 
   return (
     <section className="auth">
