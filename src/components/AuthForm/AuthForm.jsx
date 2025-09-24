@@ -26,12 +26,26 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
   // Тоже самое для success, normal-disable и error-disable — форма полностью блокируется.
 
   const [fieldsStatus, setFieldsStatus] = useState(() =>
-    initFieldsStatus(fields)
+    initFieldsStatus(fields) 
   ); // сюда передаем маасивы с полями в зависмости от конктреной формы
 
-  const onStatusChange = () => {
+  const onStatusChange = (id, isSuccess) => {
+    // принимает id - конкртное поле, к-ое обновилось и его статус, он success или нет
+    setFieldsStatus((prev) => {
+      // передаем текущее состояние полей
+      // чтобы избежать лишнего перерендеринга, проверяем, не совпадает ли текущее значение
+      if (prev[id] === isSuccess) return prev; // возвращаем старое состояние без изменений
 
-  }
+      const updatedFields = { ...prev }; // копируем, чтобы избежать мутирования старого объекта
+      updatedFields[id] = isSuccess; // обновляем одно конкретное поле в новом объекте
+
+      return updatedFields; // и возращаем обновленный объект состояния, чтобы установить его как новое состояние fieldsStatus
+    });
+  };
+
+    const allFieldsSuccess = Object.values(fieldsStatus).every(status => status === true);
+    // Object.values() берёт все значения объекта и преобразует в массив, типа [true, false, true]
+
 
   return (
     <section className="auth">
@@ -63,9 +77,13 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
 
             <h2 id={title}>{title}</h2>
 
-            <Input fields={fields} isDisabled={isDisabled} />
+            <Input fields={fields} onStatusChange={onStatusChange} />
 
-            <Button submitText={submitText} variant="login" />
+            <Button 
+     
+            submitText={submitText} 
+            isDisabled={!allFieldsSuccess} 
+            variant="login" />
 
             <hr className="auth__divider" />
 

@@ -1,5 +1,5 @@
 export const initFieldsStatus= (fields) => {
-    fieldsStatus = {}; // здесь мы будем хранить статусы по каждому полю, успех или ошибка
+    const fieldsStatus = {}; // здесь мы будем хранить статусы по каждому полю, успех или ошибка
 
   // формируем через перебор всех полей объект по такой логике: 
   // если в поле есть required - по умолчанию оно не заполнено, false, чтобы при надобности оно могло заблокировать отправку
@@ -8,9 +8,11 @@ export const initFieldsStatus= (fields) => {
 
     fields.forEach(field => {
         if (field.required) {
-            fieldsStatus[field.id] === 'false'
+            fieldsStatus[field.id] = false
         } else {
-            fieldsStatus(field.id) === 'true'
+            fieldsStatus[field.id] = true
         }
     });
+
+    return fieldsStatus;
 }

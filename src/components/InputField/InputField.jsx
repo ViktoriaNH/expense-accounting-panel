@@ -3,8 +3,9 @@ import "./InputField.scss";
 import { Link } from "react-router-dom";
 import { validateInputs } from "../../utils/validateInput";
 import { getInputClass } from "../../utils/getInputClass";
+import { usePassStatus } from "../../hooks/usePassStatus";
 
-const InputField = ({ field }) => {
+const InputField = ({ field, onStatusChange }) => {
   const [value, setValue] = useState("");
   const [touched, setTouched] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -47,6 +48,8 @@ const InputField = ({ field }) => {
   ${getInputClass(field, isFilled, hasError)}
   ${isSuccess ? "form__input--success" : ""}
 `;
+
+  usePassStatus(isSuccess, field.id, onStatusChange); // отслеживает, когда isSuccess меняется
 
   // чекбокс отдельно
   if (field.type === "checkbox") {
