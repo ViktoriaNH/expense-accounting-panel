@@ -26,7 +26,7 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
   // Тоже самое для success, normal-disable и error-disable — форма полностью блокируется.
 
   const [fieldsStatus, setFieldsStatus] = useState(() =>
-    initFieldsStatus(fields) 
+    initFieldsStatus(fields)
   ); // сюда передаем маасивы с полями в зависмости от конктреной формы
 
   const onStatusChange = (id, isSuccess) => {
@@ -43,9 +43,10 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
     });
   };
 
-    const allFieldsSuccess = Object.values(fieldsStatus).every(status => status === true);
-    // Object.values() берёт все значения объекта и преобразует в массив, типа [true, false, true]
-
+  const allFieldsSuccess = Object.values(fieldsStatus).every(
+    (status) => status === true
+  );
+  // Object.values() берёт все значения объекта и преобразует в массив, типа [true, false, true]
 
   return (
     <section className="auth">
@@ -79,11 +80,11 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
 
             <Input fields={fields} onStatusChange={onStatusChange} />
 
-            <Button 
-     
-            submitText={submitText} 
-            isDisabled={!allFieldsSuccess} 
-            variant="login" />
+            <Button
+              submitText={submitText}
+              allFieldsSuccess={allFieldsSuccess}
+              variant="login"
+            />
 
             <hr className="auth__divider" />
 
