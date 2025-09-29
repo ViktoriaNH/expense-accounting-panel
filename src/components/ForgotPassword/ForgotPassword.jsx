@@ -4,7 +4,7 @@ import AuthForm from "../AuthForm/AuthForm";
 
 const ForgotPassword = () => {
   const forgotPasswordTitle = "Восстановить пароль";
-  const { handleForgotPassword, noticeMessage, noticeType } =
+  const { handleForgotPassword } =
     useForgotPassword();
 
   return (
@@ -14,10 +14,9 @@ const ForgotPassword = () => {
       submitText={forgotPasswordTitle}
       onSubmit={handleForgotPassword} // обработчик клика
       notice={{
-        text: noticeMessage || "Уже есть аккаунт?",
-        linkText: noticeMessage ? "" : "Войдите",
-        href: noticeMessage ? undefined : "/auth/login",
-        type: noticeType,
+        text: "Уже есть аккаунт?",
+        linkText: "Войдите",
+        href: "/auth/login",
       }}
     />
   );

@@ -8,8 +8,16 @@ import { initFieldsStatus } from "../../utils/initFieldsStatus";
 
 // родитель должен знать, какие поля success, чтобы дизэйблить кнопку
 
-const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
+const AuthForm = ({
+  title,
+  submitText,
+  fields,
+  notice,
+  onSubmit,
+
+}) => {
   const navigate = useNavigate();
+  const [serverErrors, setServerErrors] = useState({}); // <--- ошибки сервера
 
   // const isDisabled =
   //   formStatus === "submit" || // отправка данных
@@ -24,6 +32,26 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
   // Если мы ставим formStatus = "submitting" → isDisabled = true → все поля и кнопка блокируются, чтобы пользователь не мог их трогать.
 
   // Тоже самое для success, normal-disable и error-disable — форма полностью блокируется.
+
+  // убираем сообщение об ошибке, когда пользоватлеь начал что-то печатать
+
+  const clearServerError = (fieldId) => {
+    setServerErrors(function update(prev) {
+      // если в объекте нет ключа с таким id — тоже ничего не меняем
+      // if (!(fieldId in prev)) {
+      //   return prev;
+      // }
+
+      // создаём новый объект-копию
+      const newErrors = { ...prev };
+
+      // убираем конкретное поле
+      delete newErrors[fieldId];
+
+      // возвращаем новый объект
+      return newErrors;
+    });
+  };
 
   const [fieldsStatus, setFieldsStatus] = useState(() =>
     initFieldsStatus(fields)
@@ -65,7 +93,7 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
           <form
             className="auth__form"
             aria-labelledby={title}
-            onSubmit={onSubmit}
+            onSubmit={(e) => onSubmit(e, setServerErrors)}
           >
             <img
               className="auth__icon"
@@ -78,7 +106,12 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
 
             <h2 id={title}>{title}</h2>
 
-            <Input fields={fields} onStatusChange={onStatusChange} />
+            <Input
+              fields={fields}
+              onStatusChange={onStatusChange}
+              serverErrors={serverErrors}
+              clearServerError={clearServerError} // передаём вниз
+            />
 
             <Button
               submitText={submitText}

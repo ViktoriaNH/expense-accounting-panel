@@ -1,8 +1,19 @@
 import "./Button.scss";
 
-const Button = ({ submitText, onClick, type = "submit", variant = "", allFieldsSuccess }) => {
+const Button = ({
+  submitText,
+  onClick,
+  type = "submit",
+  variant = "",
+  allFieldsSuccess = true,
+}) => {
   return (
-    <button className={`button button--${variant}`} type={type} onClick={onClick}  disabled={!allFieldsSuccess} >
+    <button
+      className={`button button--${variant}`}
+      type={type}
+      onClick={onClick}
+      disabled={!allFieldsSuccess}
+    >
       {submitText}
     </button>
   );

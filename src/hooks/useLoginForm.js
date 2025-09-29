@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginFormFields } from "../data/authFormFields";
 
@@ -7,35 +6,43 @@ import { loginFormFields } from "../data/authFormFields";
 const useLoginForm = (handleLogin) => {
   // подход через универсальный параметр, чтобы жестко не привязываться к loginUser
   const navigate = useNavigate();
-  const [noticeMessage, setNoticeMessage] = useState("");
-  const [noticeType, setNoticeType] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, setServerErrors) => {
     e.preventDefault(); // отменяем дефолтную презагрузку страницы
 
     const formData = {};
+    // loginFormFields.forEach((field) => {
+    //   formData[field.name] = e.target[field.name].value;
+    // });
+
     loginFormFields.forEach((field) => {
-      formData[field.name] = e.target[field.name].value;
-    });
+  const input = e.target[field.name];
+  if (input.type === "checkbox") {
+    formData[field.name] = input.checked;
+  } else {
+    formData[field.name] = input.value;
+  }
+});
 
-    handleLogin(formData)
+    handleLogin(formData.username, formData.password)
       .then(() => {
-        // успех
-        setNoticeMessage("Вход выполнен успешно!");
-        setNoticeType("success");
-
         setTimeout(() => {
           navigate("/my-profile");
         }, 1000);
       })
-
-      .catch((err) => {
-        setNoticeMessage(err.message || "Неверный логин или пароль");
-        setNoticeType("error");
+.catch((err) => {
+        if (err.message === "Invalid credentials") {
+          // ставим серверную ошибку именно под username или email
+          setServerErrors({
+            username: "Ошибка входа, проверьте корректность введенных данных",
+            password: "Ошибка входа, проверьте корректность введенных данных",
+          });
+        }
       });
+  
   };
 
-  return { handleSubmit, noticeMessage, noticeType };
+  return { handleSubmit };
 };
 
 export default useLoginForm;

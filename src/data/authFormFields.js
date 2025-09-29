@@ -125,30 +125,30 @@ export const registerFormFields = [
     onChange: undefined, // опц. функция (для контролируем. полей)
     message: null, // хэлпер текст
   },
-  {
-    id: "confirm",
-    name: "confirm",
-    label: "Повторите пароль",
-    type: "password",
-    required: true,
-    placeholder: 'Повторите Ваш пароль',
-    minLength: 8,
-    maxLength: 14,
-    iconLeft: inputIcons.leftIconPassword,
-    iconRight: inputIcons.rightIconPassword,
+  // {
+  //   id: "confirm",
+  //   name: "confirm",
+  //   label: "Повторите пароль",
+  //   type: "password",
+  //   required: true,
+  //   placeholder: 'Повторите Ваш пароль',
+  //   minLength: 8,
+  //   maxLength: 14,
+  //   iconLeft: inputIcons.leftIconPassword,
+  //   iconRight: inputIcons.rightIconPassword,
 
-    iconClose: inputIcons.rightIconPasswordClose,
-    iconOpen: inputIcons.rightIconPasswordOpen,
+  //   iconClose: inputIcons.rightIconPasswordClose,
+  //   iconOpen: inputIcons.rightIconPasswordOpen,
 
-    iconRightError: inputIcons.rightIconErr,
-    iconRightSuccess: inputIcons.rightIconSucc,
-    value: undefined, // если родитель контролирует поле — туда приходит строка
-    disabled: false,
-    error: null, // string с текстом ошибки или null
-    success: false, // булевый флаг (или тоже string с сообщением)
-    onChange: undefined, // опц. функция (для контролируем. полей)
-    message: null, // хэлпер текст
-  },
+  //   iconRightError: inputIcons.rightIconErr,
+  //   iconRightSuccess: inputIcons.rightIconSucc,
+  //   value: undefined, // если родитель контролирует поле — туда приходит строка
+  //   disabled: false,
+  //   error: null, // string с текстом ошибки или null
+  //   success: false, // булевый флаг (или тоже string с сообщением)
+  //   onChange: undefined, // опц. функция (для контролируем. полей)
+  //   message: null, // хэлпер текст
+  // },
 ];
 
 export const forgotPasswordFormFields = [
@@ -204,6 +204,20 @@ export const resetPasswordFormFields = [
     placeholder: 'Введите код из письма',
     minLength: 6,
     maxLength: 6,
+    iconLeft: inputIcons.leftIconPassword,
+    iconRight: inputIcons.rightIconPassword,
+
+    iconClose: inputIcons.rightIconPasswordClose,
+    iconOpen: inputIcons.rightIconPasswordOpen,
+
+    iconRightError: inputIcons.rightIconErr,
+    iconRightSuccess: inputIcons.rightIconSucc,
+    value: undefined, // если родитель контролирует поле — туда приходит строка
+    disabled: false,
+    error: null, // string с текстом ошибки или null
+    success: false, // булевый флаг (или тоже string с сообщением)
+    onChange: undefined, // опц. функция (для контролируем. полей)
+    message: null, // хэлпер текст
   },
   {
     id: "new_password",

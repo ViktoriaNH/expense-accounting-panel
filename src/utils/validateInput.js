@@ -1,4 +1,5 @@
-export const validateInputs = (field, value, touched) => {
+
+export const validateInputs = (field, value, touched, serverError) => {
   let errorMessage = "";
 
   if (touched) {
@@ -20,8 +21,8 @@ export const validateInputs = (field, value, touched) => {
     }
   }
 
-  const hasError = Boolean(errorMessage || field.error); // булевое, есть ли ошибка вообще, серверная или локальная (что юзер ввел или не ввел)
-  const message = errorMessage || field.error || ""; // field.error - будет серверная ошибка
+  const hasError = Boolean(errorMessage || serverError);
+  const message = errorMessage || serverError || "";
 
   return { hasError, message };
 };

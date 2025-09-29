@@ -1,26 +1,28 @@
-
+import { useNavigate } from "react-router-dom";
 import { resetPasswordFormFields } from "../../data/authFormFields";
-import AuthForm from './../AuthForm/index';
+import AuthForm from "./../AuthForm/index";
 
 const ResetPassword = () => {
-    const resetPasswordTitle = 'Сброс пароля'
+  const resetPasswordTitle = "Сброс пароля";
+  const navigate = useNavigate();
 
+  const handleResetPassword = () => {
+    navigate("/my-profile");
+  };
 
-    return (
-        <AuthForm
-        title={resetPasswordTitle}
-        fields={resetPasswordFormFields}
-        sumbitTeext={resetPasswordTitle}
-        //  onSubmit={}
-    //   notice={{
-    //     text: noticeMessage || "Уже есть аккаунт?",
-    //     linkText: noticeMessage ? "" : "Войдите",
-    //     href: noticeMessage ? undefined : "/auth/login",
-    //     type: noticeType,
-    //   }}
-        />
-    )
-}
-
+  return (
+    <AuthForm
+      title={resetPasswordTitle}
+      fields={resetPasswordFormFields}
+      sumbitText={resetPasswordTitle}
+      onSubmit={handleResetPassword}
+      notice={{
+        text: "Уже есть аккаунт?",
+        linkText: "Войдите",
+        href: "/auth/login",
+      }}
+    />
+  );
+};
 
 export default ResetPassword;

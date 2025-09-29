@@ -5,7 +5,12 @@ import { validateInputs } from "../../utils/validateInput";
 import { getInputClass } from "../../utils/getInputClass";
 import { usePassStatus } from "../../hooks/usePassStatus";
 
-const InputField = ({ field, onStatusChange }) => {
+const InputField = ({
+  field,
+  onStatusChange,
+   serverError,        // новый проп: строка с серверной ошибкой для этого поля
+  clearServerError,   // новый проп: функция (fieldId) => void
+}) => {
   const [value, setValue] = useState("");
   const [touched, setTouched] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -19,14 +24,32 @@ const InputField = ({ field, onStatusChange }) => {
     field,
     value,
     touched,
-    showPassword
+      serverError
   );
 
   // успех (галочка) показывается только после blur
   const isSuccess = touched && isFilled && !hasError;
 
+  //  const errorMessage = serverError || message; // приоритет серверной ошибки
+  // const isError = Boolean(serverError || message);
+
+  // const handleChange = (e) => {
+  //   setValue(e.target.value);
+  // }; - тут кнопка будет задизэйблена и после ввода последнего поля, надо куда-то кликать дополнительно, чтобы сработал success и кнопка стала активной
+
   const handleChange = (e) => {
-    setValue(e.target.value);
+    const newValue = e.target.value;
+    setValue(newValue);
+
+    // очищаем серверную ошибку, когда юзер начал печатать 
+     if (serverError) {
+      clearServerError(field.id);
+    }
+
+
+    // Success для кнопки: обновляем статус поля на лету
+    const successForButton = newValue.trim() !== "" && !hasError;
+    onStatusChange(field.id, successForButton);
   };
 
   const handleBlur = () => {
@@ -60,6 +83,7 @@ const InputField = ({ field, onStatusChange }) => {
           id={field.id}
           name={field.name}
           className="form__checkbox-input"
+        
         />
         <span className="form__checkbox-label">{field.label}</span>
       </label>
@@ -80,10 +104,10 @@ const InputField = ({ field, onStatusChange }) => {
         )}
       </div>
 
-      <div 
-       className={`form__input-container ${field.type === "password" ? "form__input-container--password" : ""}`}
-      
-      
+      <div
+        className={`form__input-container ${
+          field.type === "password" ? "form__input-container--password" : ""
+        }`}
       >
         {field.iconLeft && (
           <img
@@ -107,6 +131,7 @@ const InputField = ({ field, onStatusChange }) => {
           maxLength={field.maxLength}
           placeholder={field.placeholder}
           className={inputClass}
+      
         />
 
         {/* // иконка глазик всегда справа  */}
