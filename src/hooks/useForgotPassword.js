@@ -12,6 +12,7 @@ export const useForgotPassword = () => {
     // // Так как e.target — это <form>, мы можем напрямую работать со всеми её элементами
     //  // и получить емэйл из инпута вот так
     const emailInput = e.target.elements["email"];
+    userEmail = emailInput.value;
 
     console.log("Email для отправки:", userEmail);
 
@@ -26,7 +27,7 @@ export const useForgotPassword = () => {
 
       setTimeout(() => {
         navigate("/auth/reset-password");
-      }, 3000);
+      }, 1000);
     });
   };
 

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { resetPasswordFormFields } from "../../data/authFormFields";
-import AuthForm from "./../AuthForm/index";
+import AuthForm from "../AuthForm/AuthForm";
+
 
 const ResetPassword = () => {
   const resetPasswordTitle = "Сброс пароля";
