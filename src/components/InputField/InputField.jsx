@@ -90,24 +90,26 @@ const InputField = ({
 
   return (
     <div className="form__group">
-      <div className="form__group-row">
+      <div className="form__group-main">
         <label htmlFor={field.id} className="form__label">
           {field.label}
         </label>
 
-           <div className="form__input-status">
-          {(hasError || isSuccess) && (
-            <span>{hasError ? "Error" : "Success"}</span>
+        <div className="form__group-secondary">
+          <div className="form__input-status">
+            {(hasError || isSuccess) && (
+              <span className={hasError ? "text-error" : "text-success"}>
+                {hasError ? "Error." : "Success."}
+              </span>
+            )}
+          </div>
+
+          {field.extra?.type === "link" && (
+            <Link to={field.extra.href} className="form__forgot-password">
+              {field.extra.text}
+            </Link>
           )}
         </div>
-
-        {field.extra?.type === "link" && (
-          <Link to={field.extra.href} className="form__forgot-password">
-            {field.extra.text}
-          </Link>
-        )}
-
-     
       </div>
 
       <div

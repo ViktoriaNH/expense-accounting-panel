@@ -4,9 +4,13 @@
       margin-bottom: 16px;
     }
 
-    &-row {
+    &-main,
+    &-secondary {
       display: flex;
       align-items: center;
+    }
+
+    &-main {
       justify-content: space-between;
     }
   }
@@ -16,14 +20,12 @@
   }
 
   &__input-status {
-    @include text-link(12, 8, 130%, false)
+    @include text-link(12, 8, false);
   }
-
 
   &__input-icon-left {
     left: fluid(8, 3);
   }
-
 
   &__input {
     height: fluid(47, 20);
@@ -114,4 +116,12 @@
     gap: 6px;
     padding-top: 5px;
   }
+}
+
+.text-error {
+  color: var(--color-border-input-error);
+}
+
+.text-success {
+  color: var(--color-border-input-filled);
 }
