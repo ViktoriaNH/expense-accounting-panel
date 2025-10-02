@@ -8,8 +8,8 @@ import { usePassStatus } from "../../hooks/usePassStatus";
 const InputField = ({
   field,
   onStatusChange,
-   serverError,        // новый проп: строка с серверной ошибкой для этого поля
-  clearServerError,   // новый проп: функция (fieldId) => void
+  serverError, // новый проп: строка с серверной ошибкой для этого поля
+  clearServerError, // новый проп: функция (fieldId) => void
 }) => {
   const [value, setValue] = useState("");
   const [touched, setTouched] = useState(false);
@@ -24,7 +24,7 @@ const InputField = ({
     field,
     value,
     touched,
-      serverError
+    serverError
   );
 
   // успех (галочка) показывается только после blur
@@ -41,11 +41,10 @@ const InputField = ({
     const newValue = e.target.value;
     setValue(newValue);
 
-    // очищаем серверную ошибку, когда юзер начал печатать 
-     if (serverError) {
+    // очищаем серверную ошибку, когда юзер начал печатать
+    if (serverError) {
       clearServerError(field.id);
     }
-
 
     // Success для кнопки: обновляем статус поля на лету
     const successForButton = newValue.trim() !== "" && !hasError;
@@ -83,7 +82,6 @@ const InputField = ({
           id={field.id}
           name={field.name}
           className="form__checkbox-input"
-        
         />
         <span className="form__checkbox-label">{field.label}</span>
       </label>
@@ -97,11 +95,19 @@ const InputField = ({
           {field.label}
         </label>
 
+           <div className="form__input-status">
+          {(hasError || isSuccess) && (
+            <span>{hasError ? "Error" : "Success"}</span>
+          )}
+        </div>
+
         {field.extra?.type === "link" && (
           <Link to={field.extra.href} className="form__forgot-password">
             {field.extra.text}
           </Link>
         )}
+
+     
       </div>
 
       <div
@@ -131,10 +137,7 @@ const InputField = ({
           maxLength={field.maxLength}
           placeholder={field.placeholder}
           className={inputClass}
-      
         />
-
-        {/* // иконка глазик всегда справа  */}
 
         {field.type === "password" && (
           <img
@@ -147,8 +150,6 @@ const InputField = ({
             onClick={() => setShowPassword((prev) => !prev)}
           />
         )}
-        {/* 
-       показываем икноки ошибка / успех  */}
 
         {(hasError || isSuccess) && (
           <img

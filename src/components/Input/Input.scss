@@ -15,6 +15,10 @@
     @include text-label(14, 8);
   }
 
+  &__input-status {
+    @include text-link(12, 8, 130%, false)
+  }
+
 
   &__input-icon-left {
     left: fluid(8, 3);

@@ -12,7 +12,7 @@ const ForgotPassword = () => {
       title={forgotPasswordTitle}
       fields={forgotPasswordFormFields}
       submitText={forgotPasswordTitle}
-      onSubmit={handleForgotPassword} // обработчик клика
+      onSubmit={handleForgotPassword} 
       notice={{
         text: "Уже есть аккаунт?",
         linkText: "Войдите",

@@ -85,51 +85,58 @@
   line-height: $line-height;
 }
 
-// Body Intro
-@mixin text-body-intro($max: 32, $min: 10, $line-height: 150%) {
-  font-weight: 600;
+@mixin text-main($max, $min, $weight, $line-height, $decoration: none) {
+  font-weight: $weight;
   font-size: fluid($max, $min);
   line-height: $line-height;
+  text-decoration: $decoration;
 }
 
-// label
-@mixin text-label($max: 14, $min: 14, $line-height: 130%) {
-  font-weight: 600;
-  font-size: fluid($max, $min);
-  line-height: $line-height;
-}
+// // Body Intro
+// @mixin text-body-intro($max: 32, $min: 10, $line-height: 150%) {
+//   font-weight: 600;
+//   font-size: fluid($max, $min);
+//   line-height: $line-height;
+// }
 
-// helper
-@mixin text-helper($max: 12, $min: 12, $line-height: 140%) {
-  font-weight: 400;
-  font-size: fluid($max, $min);
-  line-height: $line-height;
-}
+// // label
+// @mixin text-label($max: 14, $min: 14, $line-height: 130%) {
+//   font-weight: 600;
+//   font-size: fluid($max, $min);
+//   line-height: $line-height;
+// }
 
-// Button/CTA
+// // helper
+// @mixin text-helper($max: 12, $min: 12, $line-height: 140%) {
+//   font-weight: 400;
+//   font-size: fluid($max, $min);
+//   line-height: $line-height;
+// }
 
-@mixin text-button($max: 16, $min: 16, $line-height: 120%) {
-  font-weight: 600;
-  font-size: fluid($max, $min);
-  line-height: $line-height;
-}
+// // Button/CTA
 
-// Link - с подчеркиванием 16px, Caption Tooltip - без с 12px
-@mixin text-link($max: 16, $min: 16, $line-height: 130%, $underline: true) {
-  font-weight: 400;
-  font-size: fluid($max, $min);
-  line-height: $line-height;
-  text-decoration: if($underline, underline, none);
-}
+// @mixin text-button($max: 16, $min: 16, $line-height: 120%) {
+//   font-weight: 600;
+//   font-size: fluid($max, $min);
+//   line-height: $line-height;
+// }
 
-// tag
+// // Link - с подчеркиванием 16px, Caption Tooltip - без с 12px
+// @mixin text-link($max: 16, $min: 16, $line-height: 130%, $underline: true) {
+//   font-weight: 400;
+//   font-size: fluid($max, $min);
+//   line-height: $line-height;
+//   text-decoration: if($underline, underline, none);
+// }
 
-@mixin text-tag-small($max: 12, $min: 12, $line-height: 130%) {
-  font-weight: 700;
-  font-size: fluid($max, $min);
-  line-height: $line-height;
-  text-transform: uppercase;
-}
+// // tag
+
+// @mixin text-tag-small($max: 12, $min: 12, $line-height: 130%) {
+//   font-weight: 700;
+//   font-size: fluid($max, $min);
+//   line-height: $line-height;
+//   text-transform: uppercase;
+// }
 
 @mixin input-border($color-var) {
   border: 1px solid var($color-var);
