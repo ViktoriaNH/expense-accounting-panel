@@ -9,6 +9,7 @@ import AuthWrapper from "./sections/AuthWrapper/AuthWrapper";
 import Register from "./components/Register/Register";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
+import MyProfile from "./pages/MyProfile";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/forgot-password" element={<ForgotPassword />} />
         <Route path="/auth/reset-password" element={<ResetPassword />} />
+           <Route path="/my-profile" element={<MyProfile />} />
 
         {/*    
       <Route path="/list" element={} />

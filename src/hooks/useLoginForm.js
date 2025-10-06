@@ -11,9 +11,6 @@ const useLoginForm = (handleLogin) => {
     e.preventDefault(); // отменяем дефолтную презагрузку страницы
 
     const formData = {};
-    // loginFormFields.forEach((field) => {
-    //   formData[field.name] = e.target[field.name].value;
-    // });
 
     loginFormFields.forEach((field) => {
   const input = e.target[field.name];
@@ -32,7 +29,6 @@ const useLoginForm = (handleLogin) => {
       })
 .catch((err) => {
         if (err.message === "Invalid credentials") {
-          // ставим серверную ошибку именно под username или email
           setServerErrors({
             username: "Ошибка входа, проверьте корректность введенных данных",
             password: "Ошибка входа, проверьте корректность введенных данных",

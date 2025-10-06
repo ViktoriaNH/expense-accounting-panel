@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { resetPasswordFormFields } from "../../data/authFormFields";
 import AuthForm from "../AuthForm/AuthForm";
 
-
 const ResetPassword = () => {
   const resetPasswordTitle = "Сброс пароля";
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ const ResetPassword = () => {
     <AuthForm
       title={resetPasswordTitle}
       fields={resetPasswordFormFields}
-      sumbitText={resetPasswordTitle}
+      submitText={resetPasswordTitle}
       onSubmit={handleResetPassword}
       notice={{
         text: "Уже есть аккаунт?",
