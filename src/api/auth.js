@@ -32,7 +32,7 @@ export const loginUser = (username, password) => {
     });
 };
 
-export const useRegister = () => {
+export const registerUser = () => {
   const handleRegister = ({ username, email, password }) => {
     console.log("Login: отправляем данные на сервер", {
       username,

@@ -6,75 +6,39 @@ import Button from "../Button/Button";
 import { useState } from "react";
 import { initFieldsStatus } from "../../utils/initFieldsStatus";
 
-// родитель должен знать, какие поля success, чтобы дизэйблить кнопку
-
-const AuthForm = ({
-  title,
-  submitText,
-  fields,
-  notice,
-  onSubmit,
-
-}) => {
+const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
   const navigate = useNavigate();
-  const [serverErrors, setServerErrors] = useState({}); // <--- ошибки сервера
+  const [serverErrors, setServerErrors] = useState({});
+  const [formStatus, setFormStatus] = useState("normal");
 
-  // const isDisabled =
-  //   formStatus === "submit" || // отправка данных
-  //   formStatus === "success" || // данные отправлены, ждем переход
-  //   formStatus === "normal-disable" || // временная блокировка (что-то просто подвисло)
-  //   formStatus === "error-disable"; // блокировка при ошибке
-
-  //     Как это работает
-
-  // Пока formStatus = "idle" → isDisabled = false → поля и кнопка активны, пользователь может печатать.
-
-  // Если мы ставим formStatus = "submitting" → isDisabled = true → все поля и кнопка блокируются, чтобы пользователь не мог их трогать.
-
-  // Тоже самое для success, normal-disable и error-disable — форма полностью блокируется.
-
-  // убираем сообщение об ошибке, когда пользоватлеь начал что-то печатать
+  const isDisabled = formStatus !== "normal";
 
   const clearServerError = (fieldId) => {
     setServerErrors(function update(prev) {
-      // если в объекте нет ключа с таким id — тоже ничего не меняем
-      // if (!(fieldId in prev)) {
-      //   return prev;
-      // }
-
-      // создаём новый объект-копию
       const newErrors = { ...prev };
-
-      // убираем конкретное поле
       delete newErrors[fieldId];
-
-      // возвращаем новый объект
       return newErrors;
     });
   };
 
   const [fieldsStatus, setFieldsStatus] = useState(() =>
     initFieldsStatus(fields)
-  ); // сюда передаем маасивы с полями в зависмости от конктреной формы
+  );
 
   const onStatusChange = (id, isSuccess) => {
-    // принимает id - конкртное поле, к-ое обновилось и его статус, он success или нет
     setFieldsStatus((prev) => {
-      // передаем текущее состояние полей
-      // чтобы избежать лишнего перерендеринга, проверяем, не совпадает ли текущее значение
-      if (prev[id] === isSuccess) return prev; // возвращаем старое состояние без изменений
+      if (prev[id] === isSuccess) return prev;
 
-      const updatedFields = { ...prev }; // копируем, чтобы избежать мутирования старого объекта
-      updatedFields[id] = isSuccess; // обновляем одно конкретное поле в новом объекте
+      const updatedFields = { ...prev };
+      updatedFields[id] = isSuccess;
 
-      return updatedFields; // и возращаем обновленный объект состояния, чтобы установить его как новое состояние fieldsStatus
+      return updatedFields;
     });
   };
 
   const allFieldsSuccess = Object.values(fieldsStatus).every(
     (status) => status === true
   );
-  // Object.values() берёт все значения объекта и преобразует в массив, типа [true, false, true]
 
   return (
     <section className="auth">
@@ -89,11 +53,15 @@ const AuthForm = ({
           />
         </div>
 
-        <div className="auth__form-inner">
+        <div
+          className={`auth__form-inner ${
+            isDisabled ? "auth__form-inner--disabled" : ""
+          }`}
+        >
           <form
             className="auth__form"
             aria-labelledby={title}
-            onSubmit={(e) => onSubmit(e, setServerErrors)}
+            onSubmit={(e) => onSubmit(e, setServerErrors, setFormStatus)}
           >
             <img
               className="auth__icon"
@@ -110,13 +78,15 @@ const AuthForm = ({
               fields={fields}
               onStatusChange={onStatusChange}
               serverErrors={serverErrors}
-              clearServerError={clearServerError} // передаём вниз
+              clearServerError={clearServerError}
+              disabled={isDisabled}
             />
 
             <Button
               submitText={submitText}
               allFieldsSuccess={allFieldsSuccess}
               variant="login"
+              disabled={isDisabled}
             />
 
             <hr className="auth__divider" />

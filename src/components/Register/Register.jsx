@@ -1,4 +1,4 @@
-import { useRegister } from "../../api/auth";
+import { registerUser } from "../../api/auth";
 import { registerFormFields } from "../../data/authFormFields";
 import useRegisterForm from "../../hooks/useRegisterForm";
 
@@ -6,7 +6,7 @@ import AuthForm from "../AuthForm/AuthForm";
 
 const Register = () => {
   const registerTitle = "Зарегистрироваться";
-  const { handleRegister } = useRegister();
+  const { handleRegister } = registerUser();
   const { handleSubmit } = useRegisterForm(handleRegister);
 
   return (

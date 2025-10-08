@@ -10,10 +10,19 @@
     left: fluid(104, 60); // не нравится это решение!!!!!
   }
 
+
   &__form {
     width: fluid(394, 100);
     position: relative;
     margin: 0 auto;
+  }
+
+  &__form-inner--disabled {
+    input,
+    button {
+      opacity: 0.4;
+      pointer-events: none;
+    }
   }
 
   &__icon {
@@ -45,19 +54,3 @@
     margin-top: 33px;
   }
 }
-
-// &__input--error {
-//   padding: 18px 13px;
-// }
-
-//   &__input--error::placeholder {
-//     @include text-default(16);
-//   }
-
-// &__notice--success,
-// &__notice--error {
-//   font-weight: 700;
-//   padding: 12px 16px;
-
-//   margin-top: 12px;
-// }
