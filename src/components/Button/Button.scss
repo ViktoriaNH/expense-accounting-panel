@@ -1,20 +1,20 @@
 .button {
   // пишу пока только но оновании двух кнопок Войти и Загистрироваться
-  flex: 1 1 320px; // 320px, но можно меньше/больше
-  max-width: 320px;
+  flex: 1 1 280px; // 320px, но можно меньше/больше
+  max-width: 280px;
   min-width: 0; // разрешаем сжиматься при нехватке места
   width: 100%;
 
-  padding-block: fluid(16, 16);
-  padding-inline: fluid(24, 24);
+  padding-block: fluid(8, 6);
+  // padding-inline: fluid(56, 24);
   text-align: center;
-  border-radius: var(--border-radius-l);
+  border-radius: var(--border-radius-xl);
   cursor: pointer;
 
   &--login {
     background-color: var(--color-background-button-primary);
     border: none;
-    color: var(--color-background-button-secondary);
+    color: var(--color-button-primary);
 
     @include hover {
       background-color: var(--color-background-button-primary-hover);
@@ -31,7 +31,7 @@
   }
 
   &--register {
-    background-color: var(--color-background-button-secondary);
+    background-color: var(--color-button-primary);
     color: var(--color-background-button-primary);
     border: solid 1px var(--color-background-button-primary);
 

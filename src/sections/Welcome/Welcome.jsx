@@ -14,35 +14,34 @@ const Welcome = () => {
     navigate("/auth/register");
   };
 
+    const onMyProfileClick = () => {
+    navigate("/my-profile");
+  };
+
   return (
     <section className="welcome " aria-labelledby={titleId}>
-      <div className="welcome__inner container ">
-        <div className="welcome__message">
-          <p>Добро пожаловать!</p>
-        </div>
+      <div className="welcome__inner container">
         <div className="welcome__identify">
-          <img
-            src="/src/assets/icons/welcome-logo.svg"
-            alt=""
-            width="40"
-            height="40"
-            loading="eager"
-          />
-          <h1 id={titleId}>Панель учета расходов</h1>
+          <h1 id={titleId}>Добро пожаловать в MoneyMap!</h1>
           <p>
-            Трать с умом. Отслеживай траты.
-            <br /> Расслабься и наслаждайся.
+            MoneyMap — ваш помощник в управлении финансами с наглядными отчётами, таблицами и графиками.
           </p>
         </div>
 
         <div className="welcome__description">
-          Панель автоматически распределит расходы и построит отчёты <br />в
-          графиках и таблицах.
+            <img
+            src="/src/assets/images/main-img.webp"
+            alt=""
+            width="604"
+            height="430"
+            loading="eager"
+          />
         </div>
 
         <div className="welcome__auth">
           <Button variant="login" submitText="Войти" onClick={onLoginClick} />
             <Button variant="register" submitText="Зарегистрироваться" onClick={onRegisterClick} />
+            <Button variant="login" submitText="Продолжить без регистрации" onClick={onMyProfileClick} />
         </div>
       </div>
     </section>

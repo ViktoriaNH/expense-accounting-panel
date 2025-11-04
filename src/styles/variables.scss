@@ -1,16 +1,19 @@
 :root {
-  --color-text-primary: #0e0d1a;
-  --color-text-secondary: #2d2c2c;
-  --color-text-main: #333333; // не очень удачный нейминг, потом подумать !!!!!
-  --color-helper-text: #474747;
+  --color-button-primary: #FFFFFF;
+  // --color-text-primary: #0e0d1a;
+  --color-text-secondary: #808080;
+  // --color-text-main: #333333; // не очень удачный нейминг, потом подумать !!!!!
+  // --color-helper-text: #474747;
 
 
   // Кнопки
-  --color-background-button-primary: #5a77f7;
-  --color-background-button-secondary: #ffffff;
-  --color-background-button-primary-hover: #6360a4;
-  --color-background-button-primary-pressed: #232238;
-  --color-background-button-primary-disabled: #a8a8ad;
+  --color-background-button-primary: #4949EB;
+  --color-background-button-primary-hover: #1414BA;
+
+  // --color-background-button-secondary: #ffffff;
+  // --color-background-button-primary-hover: #6360a4;
+  // --color-background-button-primary-pressed: #232238;
+  // --color-background-button-primary-disabled: #a8a8ad;
 
   // Инпуты цвета фона и рамок
 
@@ -20,7 +23,7 @@
   --color-placeholder: #9FA1B3;
 
   --color-border-input-main: #b9bbda;
-  --color-border-input-second: #192ddb;
+  --color-border-input-second: #4949EB;
   --color-border-input-filled: #52a479;
   --color-border-input-error: #c73b3b;
   --color-border-input-disabled-success: #c0c8c4;
@@ -60,7 +63,7 @@
   // --border-width-m: 3px;
   // --border-width-s: 1px;
 
-  // --border-radius-xl: 20px;
+  --border-radius-xl: 100px;
   --border-radius-l: 12px;
   // --border-radius-l: 10px;
   // --border-radius-s: 8px;
