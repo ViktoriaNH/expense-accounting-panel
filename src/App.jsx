@@ -3,13 +3,12 @@ import "./styles/index";
 
 import Login from "./components/Login/Login";
 
-import Welcome from "./sections/Welcome/Welcome";
 import Authorization from "./pages/Authorization";
-import AuthWrapper from "./sections/AuthWrapper/AuthWrapper";
 import Register from "./components/Register/Register";
 import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import MyProfile from "./pages/MyProfile";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   return (
@@ -23,7 +22,8 @@ const App = () => {
         <Route path="/auth/register" element={<Register />} />
         <Route path="/auth/forgot-password" element={<ForgotPassword />} />
         <Route path="/auth/reset-password" element={<ResetPassword />} />
-           <Route path="/my-profile" element={<MyProfile />} />
+        <Route path="/my-profile" element={<MyProfile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
         {/*    
       <Route path="/list" element={} />

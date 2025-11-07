@@ -41,18 +41,8 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
   );
 
   return (
-    <section className="auth">
+    <div className="auth">
       <div className="auth__inner container">
-        <div className="auth__logo">
-          <img
-            src="/src/assets/icons/welcome-logo.svg"
-            alt=""
-            width="32"
-            height="32"
-            loading="eager"
-          />
-        </div>
-
         <div
           className={`auth__form-inner ${
             isDisabled ? "auth__form-inner--disabled" : ""
@@ -67,8 +57,8 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
               className="auth__icon"
               src={iconBack}
               alt="Назад"
-              width={16}
-              height={16}
+              width={18}
+              height={18}
               onClick={() => navigate("/welcome")}
             />
 
@@ -103,12 +93,8 @@ const AuthForm = ({ title, submitText, fields, notice, onSubmit }) => {
             )}
           </form>
         </div>
-
-        {/* <div className="auth__image">
-        <img src={formsImg} width={604} />
-      </div> */}
       </div>
-    </section>
+    </div>
   );
 };
 

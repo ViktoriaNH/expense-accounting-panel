@@ -15,7 +15,7 @@ const Welcome = () => {
   };
 
     const onMyProfileClick = () => {
-    navigate("/my-profile");
+    navigate("/dashboard");
   };
 
   return (

@@ -7,7 +7,7 @@ const ResetPassword = () => {
   const navigate = useNavigate();
 
   const handleResetPassword = () => {
-    navigate("/my-profile");
+    navigate("/dashboard");
   };
 
   return (

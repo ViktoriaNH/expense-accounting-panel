@@ -1,13 +1,15 @@
 import usePageTitle from "../hooks/usePageTitle";
-import PageWrapper from "../layouts/PageWrapper/PageWrapper";
+import Header from "../layouts/Header/Header";
 
 const Dashboard = () => {
   usePageTitle("Главная панель");
 
   return (
-    <PageWrapper>
-      <Content></Content>
-    </PageWrapper>
+  <Header>
+     {/* <Content></Content> */}
+  </Header>
+     
+   
   );
 };
 

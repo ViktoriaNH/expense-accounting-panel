@@ -71,6 +71,7 @@ export const registerFormFields = [
     required: true,
     minLength: 6,
     maxLength: 20,
+      placeholder: 'Введите имя пользователя',
     iconLeft: inputIcons.leftIconUsername,
     iconRightError: inputIcons.rightIconErr,
     iconRightSuccess: inputIcons.rightIconSucc,

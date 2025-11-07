@@ -4,12 +4,6 @@
   background: url("/src/assets/images/login-bg.webp") no-repeat center / cover;
   min-height: 100vh;
 
-  &__logo {
-    position: absolute;
-    top: 16px;
-    left: fluid(104, 60); // не нравится это решение!!!!!
-  }
-
 
   &__form {
     width: fluid(394, 100);

@@ -18,7 +18,7 @@ const useResetPassword = (handleResetPass) => {
       .then(() => {
         // успех
         setTimeout(() => {
-          navigate("/my-profile");
+          navigate("/dashboard");
         }, 1000);
       })
       .catch((err) => {
