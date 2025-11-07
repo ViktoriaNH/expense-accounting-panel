@@ -1,0 +1,11 @@
+.nav {
+  max-width: fluid(220, 110);
+
+
+
+    background-color: bisque;
+
+      &__link--active {
+        background-color: red;
+    }
+}

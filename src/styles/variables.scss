@@ -7,8 +7,6 @@
   // Кнопки
   --color-background-button-primary: #4949EB;
   --color-background-button-primary-hover: #1414BA;
-
-
   --color-background-button-secondary: #ffffff;
   --color-background-button-secondary-hover: #4949EB;
   --color-background-button-primary-pressed:  #1414BA;
@@ -17,16 +15,16 @@
   // Инпуты цвета фона и рамок
 
   --color-background-input-main: #D9D9D9;
-  // --color-background-input-second: #dedae1;
-
-  // --color-border-input-main: #D9D9D9;
-
   --color-border-input-second: #4949EB;
   --color-border-input-filled: #52a479;
   --color-border-input-error: #EB4949;
   --color-border-input-disabled-success: #c0c8c4;
   --color-border-input-disabled-error: #d7b9b9;
   --color-border-input-disabled-normal: #cbc7ce;
+
+  // Фоновые
+
+  --color-body-secondary: #F5F5F5;
 
 
   // --border: var(--border-width-s) solid var(--color-black-15);

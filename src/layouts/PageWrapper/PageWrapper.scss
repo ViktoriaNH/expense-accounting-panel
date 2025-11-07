@@ -1,0 +1,10 @@
+.page-wrapper {
+    &__inner {
+            padding-top: fluid(40, 14);
+    background-color: var(--color-body-secondary) ;
+    display: flex;
+    flex-direction: row;
+    gap: fluid(24, 12);
+    }
+
+}

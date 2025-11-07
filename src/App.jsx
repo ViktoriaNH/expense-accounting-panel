@@ -9,6 +9,8 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./components/ResetPassword/ResetPassword";
 import MyProfile from "./pages/MyProfile";
 import Dashboard from "./pages/Dashboard";
+import Settings from "./pages/Settings";
+import Statistics from "./pages/Statistics";
 
 const App = () => {
   return (
@@ -24,11 +26,8 @@ const App = () => {
         <Route path="/auth/reset-password" element={<ResetPassword />} />
         <Route path="/my-profile" element={<MyProfile />} />
         <Route path="/dashboard" element={<Dashboard />} />
-
-        {/*    
-      <Route path="/list" element={} />
-      <Route path="/stats" element={} />
-      <Route path="/setting" element={} />  */}
+      <Route path="/statistics" element={<Statistics />} />
+     <Route path="/setting" element={<Settings />} />  
       </Routes>
     </BrowserRouter>
   );
