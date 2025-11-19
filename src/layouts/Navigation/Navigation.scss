@@ -1,11 +1,31 @@
 .nav {
-  max-width: fluid(220, 110);
+  width: 185px;
+  max-height: fluid(185, 328);
 
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
+  &__item {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: fluid(12, 8);
 
-    background-color: bisque;
+    @include hover {
+      background-color: var(--color-navitem-active);
 
-      &__link--active {
-        background-color: red;
+      border-radius: var(--border-radius-m);
+      width: 100%;
     }
+  }
+
+  &__item--active {
+    background-color: var(--color-navitem-active);
+    color: var(--color-border-input-second);
+    border-radius: var(--border-radius-m);
+    width: 100%;
+  }
 }
