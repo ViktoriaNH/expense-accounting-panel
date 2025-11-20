@@ -16,9 +16,9 @@
 
     @include hover {
       background-color: var(--color-navitem-active);
-
       border-radius: var(--border-radius-m);
       width: 100%;
+      transition-duration: var(--transition-duration);
     }
   }
 

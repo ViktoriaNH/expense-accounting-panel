@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./Welcome.scss";
 import Button from "../../components/Button/Button";
+import welcomeImg from '../../assets/images/welcome-img2.webp'
 
 const Welcome = () => {
   const titleId = "welcome-title";
@@ -30,7 +31,7 @@ const Welcome = () => {
 
         <div className="welcome__description">
             <img
-            src="/src/assets/images/main-img.webp"
+            src={welcomeImg}
             alt=""
             width="604"
             height="430"
