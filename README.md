@@ -1,4 +1,4 @@
- # Expense Accounting Panel
+ # MoneyMap - Income & Expense Tracker
 
 ## About
 A simple application for tracking expenses and budgeting. The user will be able to enter expenses, view statistics, set limits.
@@ -47,7 +47,6 @@ A simple application for tracking expenses and budgeting. The user will be able 
 - **React Router v7** — client-side routing for page navigation
 - **SCSS** — CSS preprocessor with nesting, variables, mixins, and functions
 - **Vite** — fast and modern build tool for development and production
-- **React Hook Form** — library for building forms with minimal code, built-in validation, and high performance
 
 ## Installation & Setup
 
@@ -57,5 +56,20 @@ A simple application for tracking expenses and budgeting. The user will be able 
 3. Install dependencies: npm install
 4. Start the development server: npm start
 5. Open your browser and go to: http://localhost:5173/
+
+## Scripts
+- `npm start` - start development server
+- `npm run build` - build the project
+- `npm run preview` - preview production build
+- `npm run lint` - run ESLint to check for code issues
+- `npm run lint:fix` - run ESLint and automatically fix fixable issues
+
+## Code Style
+- SCSS written using BEM
+- Components follow PascalCase
+- Commits follow Conventional Commits:
+  - feat: ...
+  - fix: ...
+  - style: ...
 
 
